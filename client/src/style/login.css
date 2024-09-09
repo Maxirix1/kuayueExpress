@@ -35,7 +35,6 @@
     width: 175px;
     height: 40px;
     margin: 10px 0px;
-    margin-left: 5px;
 }
 .containerLogin form input::placeholder{
     padding-left: 10px;
@@ -45,7 +44,7 @@
     font-family: "Inter", sans-serif;
     font-size: 60px;
 }
-.Button{
+.Button {
     background-color: #8044CC;
             color: white;
             border: none;

@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../assets/logo.png";
 import '../style/login.css';
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
@@ -34,7 +35,7 @@ function Login() {
               <input  type="password" placeholder="password"/>
               <button className="Button">LOGIN</button>
           </form>
-              <p>ยังไม่มีบัญชีใช่มั้ย? <a href="#">สมัครสมาชิค</a> เลย!</p>
+              <p>ยังไม่มีบัญชีใช่มั้ย? <Link href="#">สมัครสมาชิค</Link> เลย!</p>
         </div>
     </div>
     <footer>
