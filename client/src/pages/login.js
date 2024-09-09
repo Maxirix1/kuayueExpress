@@ -31,7 +31,7 @@ function Login() {
           <h1>LOGIN</h1>
           <form>
               <input placeholder="email address"/>
-              <input placeholder="password"/>
+              <input  type="password" placeholder="password"/>
               <button className="Button">LOGIN</button>
           </form>
               <p>ยังไม่มีบัญชีใช่มั้ย? <a href="#">สมัครสมาชิค</a> เลย!</p>
