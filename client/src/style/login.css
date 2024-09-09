@@ -32,8 +32,8 @@
 .contentLogin form input{
     border: 2px solid #e8e8e8;
     border-radius: 5px;
-    width: 175px;
-    height: 40px;
+    width: 120px;
+    height: 30px;
     margin: 10px 0px;
     margin-left: 5px;
 }
@@ -43,7 +43,7 @@
 .containerLogin h1{
     color: #8044CC;
     font-family: "Inter", sans-serif;
-    font-size: 60px;
+    font-size: 40px;
 }
 .Button{
     background-color: #8044CC;
@@ -61,8 +61,8 @@
             justify-content: center;
             align-items: center;
             font-family: "Inter", sans-serif;
-            width: 200px;
-            height: 45px;
+            width: 120px;
+            height: 20px;
 }
 .contentLogin p a{
     color: #d436cd;
@@ -72,11 +72,17 @@
 .contentLogin p{
     margin-top: 10px;
     font-family: "Kanit", sans-serif;
-    font-size: small;
+    font-size: 10px;
 }
 .headerLogin ul li a{
     font-size: 10px;
 }
 .navfooter ul li a{
     font-size: 10px;
+}
+@media screen and (max-width: 393px) {
+    
+}
+.Contact{
+    font-size: 15px;
 }
