@@ -1,0 +1,14 @@
+.headerLogin {
+    background-color: rgb(255, 255, 255);
+}
+.contentLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contentLogin form {
+    display: flex;
+    flex-direction: column;
+}

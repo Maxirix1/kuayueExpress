@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@100..900&display=swap');
+*{
+    font-family: "Noto Sans Lao", sans-serif;
+}
+header nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+header nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+header nav ul li {
+    padding: 20px;
+    padding-top: 0;
+    margin-top: -2vh;
+    padding-bottom: 10px;
+}
+header nav ul li a {
+    color: black;
+    font-weight: 500;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo img {
+    width: 35%;
+    margin-top: -10px;
+}
+.headBanner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+}
+.headBanner img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* ----------------------containerContent------------------ */
+.containerContent {
+    background-color: #e8e8e8;
+    width: 100%;
+    padding: 1vh 20vw;
+}
+.containerMainContent {
+    background-color: #e8e8e8;
+}
+.contentBelow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding-bottom: 5px;
+    margin-top: -15vh;
+    z-index: 99;
+}
+.search {
+    background-color: #8044CC;
+    padding: 20px;
+    width: 100%;
+    border-radius: 10px;
+    padding-top: 20px;
+}
+.search h1 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 10px;
+    font-family: "Noto Sans Lao", sans-serif;
+}
+.search input {
+    width: 100%;
+    background-color: #ffffffe1;
+    height: 40px;
+    border: 0px solid #fff;
+    font-family: "Noto Sans Lao", sans-serif;
+    font-size: 15px;
+    border-radius: 5px 0px 0 5px;
+}
+.search input::placeholder {
+    padding-left: 15px;
+}
+.inputSearch {
+    display: flex;
+}
+.inputSearch svg {
+    width: 20px;
+}
+.submitSearch {
+    display: flex;
+    align-items: center;
+    background-color: #ffffffe1;
+    text-align: center;
+    color: #000;
+    border-radius: 0px 5px 5px 0px;
+    padding-right: 15px;
+}
+.buttonLink {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.buttonLink h1 {
+    color: #878787;
+    font-weight: 100;
+}
+/* .firstButton , .secondButton , .thirdButton {
+    display: flex;
+} */
+.buttonLink > a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 70px;
+    text-decoration: none;
+    text-transform: none;
+    list-style: none;
+    color: #000;
+}
+.buttonLink > a > h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+}
+.firstButton img,.secondButton img, .thirdButton img {
+    width: 30px;
+    margin-bottom: 8px;
+}
+.loginLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.buttonLogin {
+    background: rgb(104,0,208);background: linear-gradient(90deg, rgba(104,0,208,1) 0%, rgba(88,249,255,1) 100%);
+    padding: 10px 30px;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    color: #fff;
+    text-shadow: 2px 2px 5px #0000006e;
+    box-shadow: 2px 4px 10px #00000032;
+}
+
+.containerMainContent {
+    padding: 3vh 10vw;
+}
+.containerDetails h1 {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+.containerDetails span {
+    font-weight: 900;
+    color: #8044CC;
+}
+.containerDetails {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: 100%;
+    padding: 5vh 10vw;
+    margin-bottom: 30px;
+    border-radius: 20px;
+}
+.contentButtonPosition {
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+}
+.second div a {
+    text-align: center;
+}
+.contentButtonPosition div {
+    background: rgb(31, 124, 255);
+    padding: 35px 45px;
+    border-radius: 20px;
+    width: 25vw;
+    margin: 20px;
+}
+.contentButtonPosition div a {
+    color: #fff;
+    text-shadow: 2px 2px 5px #00000036;
+    font-size: 1.3rem;
+    text-align: center;
+}
+.containerAbout {
+    background: rgb(35,45,105);
+    background: radial-gradient(circle, rgba(35,45,105,1) 0%, rgb(16, 31, 65) 100%);
+    padding: 5vh 10vw;
+    border-radius: 20px ;
+    padding-bottom: 20px;
+    color: #fff;
+}
+
+.containerAbout h1 {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+.containerAbout span {
+    font-weight: 900;
+    color: #8044CC;
+}
+.containerAbout .content p {
+    padding: 30px 60px;
+    font-weight: 200;
+}
+footer {
+    background-color: #8044CC;
+    height: 40vh;
+}
+footer .logo {
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+footer .logo img {
+    width: 10%;
+}
+.navfooter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+.navfooter ul{
+    display: flex;
+}
+.navfooter ul li a {
+    color: #fff;
+}
+.navfooter ul li {
+    padding: 20px;
+    padding-top: 0;
+    margin-top: -2vh;
+    padding-bottom: 10px;
+}
+
+footer h1 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+    color: #fff;
+    margin-top: 20px;
+}
