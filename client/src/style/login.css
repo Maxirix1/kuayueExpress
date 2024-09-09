@@ -32,7 +32,7 @@
 .contentLogin form input{
     border: 2px solid #e8e8e8;
     border-radius: 5px;
-    width: 120px;
+    width: 200px;
     height: 30px;
     margin: 10px 0px;
 }
@@ -43,6 +43,7 @@
     color: #8044CC;
     font-family: "Inter", sans-serif;
     font-size: 40px;
+    padding: 0px 0px;
 }
 .Button {
     background-color: #8044CC;
@@ -50,7 +51,7 @@
             border: none;
             padding: 15px 40px;
             text-align: center;
-            font-size: 16px;
+            font-size: 15px;
             border-radius: 10px;
             cursor: pointer;
             display: inline-block;
@@ -60,22 +61,54 @@
             justify-content: center;
             align-items: center;
             font-family: "Inter", sans-serif;
-            width: 120px;
-            height: 20px;
+            width: 200px;
+            height: 10px;
 }
 .contentLogin p a{
     color: #d436cd;
     margin-top: 100px;
     font-family: "Kanit", sans-serif;
-}
+} 
 .contentLogin p{
     margin-top: 10px;
     font-family: "Kanit", sans-serif;
-    font-size: 10px;
+    font-size: 15px;
 }
 .headerLogin ul li a{
     font-size: 10px;
 }
 .navfooter ul li a{
     font-size: 10px;
+}
+.contentLogin h1{
+    font-size: 80px;
+}
+@media screen and (max-width: 393px) {
+    .Contact{
+        font-size: 15px;
+    }
+    .contentLogin form input{
+        width: 120px;
+        height: 30px
+    }
+    .containerLogin{
+        padding: 5vw 10vw;
+    }
+    .headerLogin ul li a{
+        font-size: 10px;
+    }
+    .navfooter ul li a{
+        font-size: 10px;
+    }
+    .Button{
+        width: 120px;
+        height: 20px;
+        font-size: 13px;
+    }
+    .contentLogin h1{
+        font-size: 50px;
+    }
+    .contentLogin p{
+        font-size: 12px;
+    }
 }
