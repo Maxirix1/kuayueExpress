@@ -17,7 +17,7 @@
     height: 400px;
     width: auto;
     margin-left: auto;
-}s
+}
 
 .contentLogin form {
     display: flex;
@@ -35,7 +35,7 @@
     width: 175px;
     height: 40px;
     margin: 10px 0px;
-    margin-left: 75px;
+    margin-left: 5px;
 }
 .containerLogin form input::placeholder{
     padding-left: 10px;
@@ -43,7 +43,7 @@
 .containerLogin h1{
     color: #8044CC;
     font-family: "Inter", sans-serif;
-    font-size: 70px;
+    font-size: 60px;
 }
 .Button{
     background-color: #8044CC;
@@ -72,4 +72,11 @@
 .contentLogin p{
     margin-top: 10px;
     font-family: "Kanit", sans-serif;
+    font-size: small;
+}
+.headerLogin ul li a{
+    font-size: 10px;
+}
+.navfooter ul li a{
+    font-size: 10px;
 }
