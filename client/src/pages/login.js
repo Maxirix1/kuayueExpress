@@ -28,11 +28,13 @@ function Login() {
         </header>
     <div className="containerLogin">
         <div className="contentLogin">
-          <h1>Login</h1>
+          <h1>LOGIN</h1>
           <form>
               <input placeholder="email address"/>
               <input placeholder="password"/>
+              <button className="Button">LOGIN</button>
           </form>
+              <p>ยังไม่มีบัญชีใช่มั้ย? <a href="#">สมัครสมาชิค</a> เลย!</p>
         </div>
     </div>
     <footer>
