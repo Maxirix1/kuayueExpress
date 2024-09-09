@@ -38,7 +38,7 @@ function Login() {
               <p>ยังไม่มีบัญชีใช่มั้ย? <Link href="#">สมัครสมาชิค</Link> เลย!</p>
         </div>
     </div>
-    <footer>
+    <footer className="footer">
         <div className="logo">
             <img src={Logo} alt="logo"/>
         </div>
@@ -58,7 +58,7 @@ function Login() {
                     </li>
                 </ul>
         </div>
-        <h1 className="Contact">Contact</h1>
+        <h1>Contact</h1>
     </footer>
   </div>
   );
