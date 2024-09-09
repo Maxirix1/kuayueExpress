@@ -32,3 +32,7 @@
 .containerLogin form input::placeholder{
     padding-left: 10px;
 }
+.containerLogin h1{
+    color: #8044CC
+    ;
+}
