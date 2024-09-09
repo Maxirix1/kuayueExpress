@@ -58,7 +58,7 @@ function Login() {
                     </li>
                 </ul>
         </div>
-        <h1>Contact</h1>
+        <h1 className="Contact">Contact</h1>
     </footer>
   </div>
   );
