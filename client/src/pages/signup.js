@@ -1,7 +1,9 @@
+import Logo from "../assets/logo.png"
 import React from "react";
 import "../style/login.css";
 import { Link } from "react-router-dom";
 import Navbar from "../components/navbar";
+import Facebook from "../assets/facebook.png"
 
 function Signup() {
   return (
@@ -89,6 +91,31 @@ function Signup() {
           </div>
         </div>
       </section>
+      <footer>
+        <div className="logo">
+            <img src={Logo} alt="logo"/>
+        </div>
+        <div className="navfooter">
+        <ul>
+                    <li>
+                        <a href="/">| Home</a>
+                    </li> 
+                    <li>
+                        <a href="/">| About</a>
+                    </li> 
+                    <li>
+                        <a href="/">| ติดตามพัสดุ</a>
+                    </li> 
+                    <li>
+                        <a href="/">| คำนวณค่าขนส่ง</a>
+                    </li>
+                </ul>
+        </div>
+        <h1>Contact</h1>
+        <Link to="https://www.facebook.com/profile.php?id=61551089827548&mibextid=LQQJ4d" className="flex items-center justify-center pt-9">
+                <img src={Facebook} className="w-12"></img>
+            </Link>
+    </footer>
     </div>
   );
 }

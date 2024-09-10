@@ -8,7 +8,7 @@ function Navbar() {
   return (
     <nav className="bg-white border-gray-200">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <Link href="/" className="flex items-center">
+        <Link to="/" className="flex items-center">
           <img
             src={Logo}
             className="h-16"
@@ -63,7 +63,7 @@ function Navbar() {
             </li>
             <li>
               <Link
-                href="#"
+                to="/"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 "
               >
                 ติดตามพัสดุ
