@@ -56,7 +56,7 @@ function Signup() {
       <a href="#" className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a>
     </div> */}
                 <button type="submit" className="w-full text-white bg-[#b111d1] hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
-                <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                <p className="text-center text-sm font-light text-gray-500 dark:text-gray-400">
                   มีบัญชีแล้วใช่ไหม? <Link to="/login" className="font-medium text-[#b111d1] hover:underline dark:text-primary-500">เข้าสู่ระบบ</Link> เลย!
                 </p>
               </form>
