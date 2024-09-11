@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const InventoryDashboard = () => {
+const BranchDashboard = () => {
   const [activePage, setActivePage] = useState('branches');
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
@@ -98,7 +98,7 @@ const InventoryDashboard = () => {
           )}
         </div>
         <nav style={{ flex: 1 }}>
-          <Link to="/" style={sidebarLinkStyle('home')} onClick={() => { setActivePage('home'); isMobile && toggleSidebar(); }}>หน้าแรก</Link>
+          <Link to="/homeAdmin" style={sidebarLinkStyle('home')} onClick={() => { setActivePage('home'); isMobile && toggleSidebar(); }}>หน้าแรก</Link>
           <Link to="/homeAdmin/list" style={sidebarLinkStyle('inventory')} onClick={() => { setActivePage('inventory'); isMobile && toggleSidebar(); }}>รายการพัสดุ</Link>
           <Link to="/distribution" style={sidebarLinkStyle('distribution')} onClick={() => { setActivePage('distribution'); isMobile && toggleSidebar(); }}>กระจายพัสดุ</Link>
           <Link to="/homeAdmin/data" style={sidebarLinkStyle('branches')} onClick={() => { setActivePage('branches'); isMobile && toggleSidebar(); }}>ข้อมูลสาขา</Link>
@@ -166,7 +166,7 @@ const InventoryDashboard = () => {
 
         <div style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(3, 1fr)', 
+          gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)', 
           gap: '20px' 
         }}>
           {branchData.map((branch) => (
@@ -178,4 +178,4 @@ const InventoryDashboard = () => {
   );
 };
 
-export default InventoryDashboard;
+export default BranchDashboard;
