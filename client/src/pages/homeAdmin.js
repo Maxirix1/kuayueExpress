@@ -4,7 +4,7 @@ import Header from '../components/Header.js';
 import FormSection from '../components/FormSection.js';
 import '../style/ariamairu.css';
 
-function App() {
+function Homeadmin() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -13,12 +13,13 @@ function App() {
 
   return (
     <div className="app">
-      <div className="burger" onClick={toggleSidebar}>
-        ☰
-      </div>
 
-      <Sidebar isOpen={isSidebarOpen} />
-
+      <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar}/>
+      {!isSidebarOpen && (
+        <div className="burger" onClick={toggleSidebar}>
+          ☰
+        </div>
+      )}
       <div className={`main-content ${isSidebarOpen ? 'with-sidebar' : ''}`}>
         <Header />
 
@@ -64,4 +65,5 @@ function App() {
   );
 }
 
-export default App;
+export default Homeadmin;
+

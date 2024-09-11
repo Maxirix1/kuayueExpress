@@ -12,7 +12,9 @@
   .with-sidebar {
     margin-left: 250px;
   }
-  
+  .burger {
+    z-index: -9;
+  }
   .form-container {
     display: flex;
     justify-content: space-between;

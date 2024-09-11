@@ -1,21 +1,24 @@
 import React from 'react';
 import '../style/Sidebar.css';
+import { Link } from 'react-router-dom';
 
 function Sidebar({ isOpen, toggleSidebar }) {
   return (
     <div className={`sidebar ${isOpen ? 'open' : ''}`}>
       {/* Close Button */}
-      <div className="close-btn" onClick={toggleSidebar}>
+      <button className="close-btn" onClick={toggleSidebar}>
         &times;
-      </div>
-      <h2>การจัดการ</h2>
+      </button>
+      <h1 className='text-3xl mt-10 text-center mb-4'>การจัดการ</h1>
       <ul>
-        <li>หน้าแรก</li>
-        <li>รายการพัสดุ</li>
-        <li>กระจายพัสดุ</li>
-        <li>ข้อมูลสาขา</li>
+        <li className='active'><Link to="/">หน้าแรก</Link></li>
+        <li><Link to="/">รายการพัสดุ</Link></li>
+        <li><Link to="/">กระจายพัสดุ</Link></li>
+        <li><Link to="/">ข้อมูลสาขา</Link></li>
       </ul>
-      <button className="logout-btn">LOGOUT</button>
+      <div className='m-8'>
+        <button className="logout-btn" onClick={toggleSidebar}>LOGOUT</button>
+      </div>
     </div>
   );
 }

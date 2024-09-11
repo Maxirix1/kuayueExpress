@@ -13,7 +13,7 @@ function FormSection({ title, color }) {
       </div>
       <div className="input-group">
         <label>เบอร์ผู้สั่ง:</label>
-        <input type="text" placeholder="+66" />
+        <input type="text" placeholder="+66" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5" />
       </div>
       <div className="input-group">
         <label>ชื่อผู้สั่ง:</label>
