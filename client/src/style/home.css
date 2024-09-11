@@ -193,7 +193,8 @@ header nav ul li a {
     background: rgb(31, 124, 255);
     padding: 35px 45px;
     border-radius: 20px;
-    width: 25vw;
+    width: 450px;
+    height: 200px;
     margin: 20px;
 }
 .contentButtonPosition div a {

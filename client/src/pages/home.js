@@ -1,6 +1,7 @@
 import React from "react";
 import '../style/home.css';
 import '../style/main.css';
+import '../style/responsive.css'
 import Logo from '../assets/logo.png';
 import Banner from '../assets/banner.png';
 import Thai from '../assets/thailand.png';
