@@ -13,8 +13,8 @@ const BranchDashboard = () => {
     { id: 4, name: "สาขา 4", location: "ขอนแก่น" },
     { id: 5, name: "สาขา 5", location: "ชลบุรี" },
     { id: 6, name: "สาขา 6", location: "อยุธยา" },
-    { id: 7, name: "สาขา 7", location: "สุราษฎร์ธานี" },
-    { id: 8, name: "สาขา 8", location: "เชียงราย" },
+    { id: 7, name: "สาขา 7", location: "เชี่ยงไห้" },
+    { id: 8, name: "สาขา 8", location: "เฉิงตู" },
     { id: 9, name: "สาขา 9", location: "ปักกิ่ง" },
   ];
 
