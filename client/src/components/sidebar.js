@@ -12,7 +12,7 @@ function Sidebar({ isOpen, toggleSidebar }) {
       <h1 className='text-3xl mt-10 text-center mb-4'>การจัดการ</h1>
       <ul>
         <li className='active'><Link to="/">หน้าแรก</Link></li>
-        <li><Link to="/">รายการพัสดุ</Link></li>
+        <li><Link to="./components/list.js">รายการพัสดุ</Link></li>
         <li><Link to="/">กระจายพัสดุ</Link></li>
         <li><Link to="/">ข้อมูลสาขา</Link></li>
       </ul>
