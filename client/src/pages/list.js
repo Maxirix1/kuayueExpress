@@ -1,132 +1,3 @@
-// import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
-
-// // Sidebar component with toggle functionality
-// function Sidebar({ isOpen, toggleSidebar }) {
-//   return (
-//     <div className={`w-1/5 bg-[#2a2d39] text-white h-screen p-6 ${isOpen ? 'block' : 'hidden'}`}>
-//       {/* Close Button */}
-//       <button className="close-btn" onClick={toggleSidebar}>
-//         &times;
-//       </button>
-
-//       {/* Sidebar Title */}
-//       <h1 className="text-3xl mt-10 text-center mb-4">การจัดการ</h1>
-
-//       {/* Sidebar Links */}
-//       <ul>
-//         <li className="mb-4">
-//           <Link to="/" className="hover:text-gray-300">หน้าแรก</Link>
-//         </li>
-//         <li className="mb-4">
-//           <Link to="/list" className="hover:text-gray-300">รายการพัสดุ</Link>
-//         </li>
-//         <li className="mb-4">
-//           <Link to="/" className="hover:text-gray-300">กระจายพัสดุ</Link>
-//         </li>
-//         <li>
-//           <Link to="/" className="hover:text-gray-300">ข้อมูลสาขา</Link>
-//         </li>
-//       </ul>
-
-//       {/* Logout Button */}
-//       <div className="absolute bottom-6 left-6">
-//         <button className="text-gray-300 hover:text-white">LOGOUT</button>
-//       </div>
-//     </div>
-//   );
-// }
-
-// // Header component
-// function Header() {
-//   return (
-//     <div className="w-full bg-white shadow-md p-6 flex justify-between items-center">
-//       <div className="text-gray-700">
-//         วันที่ XX/XX/XX <br /> XX:XX
-//       </div>
-//       <div>
-//         <span className="font-bold">{'{ USERNAME }'}</span> | {'{ ตำแหน่ง โคดัง หรือสาขาที่ประจำอยู่ }'}
-//       </div>
-//       <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
-//         หน้าแรก
-//       </button>
-//     </div>
-//   );
-// }
-
-// // Table component
-// function Table() {
-//   return (
-//     <div className="bg-white shadow-md p-6 mt-4">
-//       <h2 className="text-2xl font-bold mb-4">รายการพัสดุ</h2>
-//       <table className="min-w-full bg-white border border-gray-200">
-//         <thead>
-//           <tr>
-//             <th className="border-b px-4 py-2 text-left">ID</th>
-//             <th className="border-b px-4 py-2 text-left">ชื่อผู้ส่ง</th>
-//             <th className="border-b px-4 py-2 text-left">ประเภท</th>
-//             <th className="border-b px-4 py-2 text-left">ราคา</th>
-//             <th className="border-b px-4 py-2 text-left">รายละเอียดเพิ่มเติม</th>
-//           </tr>
-//         </thead>
-//         <tbody>
-//           {/* Sample row */}
-//           <tr>
-//             <td className="border-b px-4 py-2">1</td>
-//             <td className="border-b px-4 py-2">Duang Dee</td>
-//             <td className="border-b px-4 py-2">Standard</td>
-//             <td className="border-b px-4 py-2">$25.00</td>
-//             <td className="border-b px-4 py-2">Chowguay</td>
-//           </tr>
-//           {/* Add more rows here */}
-//         </tbody>
-//       </table>
-//     </div>
-//   );
-// }
-
-// // Homeadmin component with burger menu and toggle functionality
-// function Homeadmin() {
-//   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-//   const toggleSidebar = () => {
-//     setIsSidebarOpen(!isSidebarOpen);
-//   };
-
-//   return (
-//     <div className="flex">
-//       {/* Sidebar */}
-//       <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-
-//       {/* Burger Icon to toggle sidebar when it's closed */}
-//       {!isSidebarOpen && (
-//         <div className="burger fixed top-6 left-6 cursor-pointer text-white text-3xl" onClick={toggleSidebar}>
-//           ☰
-//         </div>
-//       )}
-
-//       {/* Main content area */}
-//       <div className={`w-4/5 bg-gray-100 ${isSidebarOpen ? 'ml-auto' : ''}`}>
-//         {/* Header */}
-//         <Header />
-
-//         {/* Table */}
-//         <div className="p-6">
-//           <Table />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// // Main App component to render Homeadmin
-// function App() {
-//   return (
-//     <Homeadmin />
-//   );
-// }
-
-// export default App;
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../style/font-style.css';
@@ -139,7 +10,7 @@ const InventoryDashboard = () => {
   ]);
 
   const [activePage, setActivePage] = useState('inventory');
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -148,7 +19,7 @@ const InventoryDashboard = () => {
     };
 
     window.addEventListener('resize', handleResize);
-    handleResize(); // Initial check
+    handleResize();
 
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -170,11 +41,11 @@ const InventoryDashboard = () => {
   };
 
   return (
-    <div style={{ display: 'flex', height: '100vh'}}>
+    <div style={{ display: 'flex', height: '100vh', fontFamily: 'Arial, sans-serif' }}>
       {/* Sidebar */}
       <aside style={{ 
-        width: isMobile ? '100%' : (sidebarOpen ? '250px' : '0'),
-        height: isMobile ? '100%' : '100vh',
+        width: isMobile ? (sidebarOpen ? '100%' : '0') : '250px',
+        height: '100vh',
         backgroundColor: '#2a2d39',
         color: 'white',
         padding: sidebarOpen ? '20px' : '0',
@@ -204,7 +75,7 @@ const InventoryDashboard = () => {
           )}
         </div>
         <nav style={{ flex: 1 }}>
-          <Link to="/" style={sidebarLinkStyle('home')} onClick={() => { setActivePage('home'); isMobile && toggleSidebar(); }}>หน้าแรก</Link>
+          <Link to="/homeAdmin" style={sidebarLinkStyle('home')} onClick={() => { setActivePage('home'); isMobile && toggleSidebar(); }}>หน้าแรก</Link>
           <Link to="/homeAdmin/list" style={sidebarLinkStyle('inventory')} onClick={() => { setActivePage('inventory'); isMobile && toggleSidebar(); }}>รายการพัสดุ</Link>
           <Link to="/distribution" style={sidebarLinkStyle('distribution')} onClick={() => { setActivePage('distribution'); isMobile && toggleSidebar(); }}>กระจายพัสดุ</Link>
           <Link to="/homeAdmin/data" style={sidebarLinkStyle('branches')} onClick={() => { setActivePage('branches'); isMobile && toggleSidebar(); }}>ข้อมูลสาขา</Link>
@@ -229,10 +100,10 @@ const InventoryDashboard = () => {
       </aside>
 
       {/* Main content */}
-      <main style={{ flex: 1, overflow: 'auto', width: '100%' }}>
-        <header style={{ backgroundColor: 'white', padding: '20px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <div style={{ display: 'flex', alignItems: 'center' }}>
+      <main style={{ flex: 1, overflow: 'auto', padding: '20px' }}>
+        <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            {isMobile && (
               <button 
                 onClick={toggleSidebar}
                 style={{
@@ -240,40 +111,37 @@ const InventoryDashboard = () => {
                   border: 'none',
                   fontSize: '24px',
                   cursor: 'pointer',
-                  marginRight: '20px'
+                  marginRight: '10px'
                 }}
               >
                 ☰
               </button>
-              <h1 style={{ fontSize: '28px', margin: 0 }}>รายการพัสดุ</h1>
-            </div>
-            {!isMobile && (
-              <div style={{ display: 'flex', alignItems: 'center' }}>
-                <button 
-                  style={{
-                    marginRight: '20px',
-                    padding: '10px 20px',
-                    backgroundColor: '#3498db',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '5px',
-                    cursor: 'pointer',
-                    transition: 'background-color 0.3s',
-                  }}
-                  onMouseOver={(e) => e.target.style.backgroundColor = '#2980b9'}
-                  onMouseOut={(e) => e.target.style.backgroundColor = '#3498db'}
-                  onClick={() => setActivePage('home')}
-                >
-                  หน้าแรก
-                </button>
-                <span style={{ marginRight: '20px' }}>วันที่ {new Date().toLocaleDateString()}</span>
-                <span>{'{USERNAME}'} | {'ตำแหน่ง'}</span>
-              </div>
             )}
+            <h1 style={{ fontSize: '24px', margin: '0' }}>รายการพัสดุ</h1>
           </div>
+          {!isMobile && (
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <span style={{ marginRight: '20px' }}>วันที่ {new Date().toLocaleDateString('th-TH')}</span>
+              <span style={{ marginRight: '20px' }}>{new Date().toLocaleTimeString('th-TH', { hour: '2-digit', minute: '2-digit' })}</span>
+              <span>{'{ USERNAME }'} | {'{ ตำแหน่ง โกดัง หรือสาขาที่ประจำอยู่ }'}</span>
+              <button 
+                style={{
+                  marginLeft: '20px',
+                  padding: '8px 16px',
+                  backgroundColor: '#4a69bd',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '5px',
+                  cursor: 'pointer',
+                }}
+              >
+                หน้าแรก
+              </button>
+            </div>
+          )}
         </header>
 
-        <div style={{ padding: '20px', overflowX: 'auto' }}>
+        <div style={{ overflowX: 'auto' }}>
           <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: 0, borderRadius: '10px', overflow: 'hidden' }}>
             <thead>
               <tr style={{ backgroundColor: '#f1f1f1' }}>
