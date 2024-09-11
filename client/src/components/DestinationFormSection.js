@@ -1,7 +1,7 @@
 import React from 'react';
-import '../style/FormSection.css';
+import '../style/DestinationFormSection.css';
 
-function FormSection({ title, color }) {
+function DestinationFormSection({ title, color }) {
   return (
     <div className={`form-section ${color}`}>
       <h3>{title}</h3>
@@ -19,6 +19,10 @@ function FormSection({ title, color }) {
         <label>ชื่อผู้สั่ง:</label>
         <input type="text" placeholder="Name Lastname" />
       </div>
+    <div>
+      <input type='checkbox' className='flex'/>
+      <p className='text-md'>รับที่สาขา</p>
+    </div>
       <div className="input-group">
         <label>หมายเหตุ:</label>
         <textarea placeholder="เพิ่มหมายเหตุ"></textarea>
@@ -27,4 +31,4 @@ function FormSection({ title, color }) {
   );
 }
 
-export default FormSection;
+export default DestinationFormSection;

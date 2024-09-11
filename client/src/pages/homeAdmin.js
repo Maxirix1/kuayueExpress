@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Sidebar from '../components/sidebar.js';
 import Header from '../components/Header.js';
-import FormSection from '../components/FormSection.js';
+import DestinationFormSection from '../components/DestinationFormSection.js';
+import CFSFormSection from '../components/CFSFormSection.js';
 import '../style/ariamairu.css';
 
 function Homeadmin() {
@@ -24,8 +25,8 @@ function Homeadmin() {
         <Header />
 
         <div className="form-container">
-          <FormSection title="ต้นทาง" color="green" />
-          <FormSection title="ปลายทาง" color="blue" />
+          <CFSFormSection title="ต้นทาง" color="green" />
+          <DestinationFormSection title="ปลายทาง" color="blue" />
         </div>
 
         {/* Package Information Section */}
