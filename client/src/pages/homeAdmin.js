@@ -12,6 +12,8 @@ function Homeadmin() {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+
   return (
     <div className="app">
 
