@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../style/font-style.css';
 
-const InventoryDashboard = () => {
+const  Distribution = () => {
   const [inventoryData] = useState([
     { id: 1, name: 'chowguy', category: 'Food', price: 100, details: 'Chowguy duangdee' },
     { id: 2, name: 'Item 2', category: 'Category B', price: 200, details: 'Details 2' },
@@ -75,7 +75,7 @@ const InventoryDashboard = () => {
           )}
         </div>
         <nav style={{ flex: 1 }}>
-          <Link to="/" style={sidebarLinkStyle('home')} onClick={() => { setActivePage('home'); isMobile && toggleSidebar(); }}>หน้าแรก</Link>
+          <Link to="/homeAdmin/firstpage" style={sidebarLinkStyle('firstpage')} onClick={() => { setActivePage('home'); isMobile && toggleSidebar(); }}>หน้าแรก</Link>
           <Link to="/homeAdmin/list" style={sidebarLinkStyle('inventory')} onClick={() => { setActivePage('inventory'); isMobile && toggleSidebar(); }}>รายการพัสดุ</Link>
           <Link to="/homeAdmin/distribution" style={sidebarLinkStyle('distribution')} onClick={() => { setActivePage('distribution'); isMobile && toggleSidebar(); }}>กระจายพัสดุ</Link>
           <Link to="/homeAdmin/data" style={sidebarLinkStyle('branches')} onClick={() => { setActivePage('branches'); isMobile && toggleSidebar(); }}>ข้อมูลสาขา</Link>
@@ -185,4 +185,4 @@ const tableCellStyle = {
   borderBottom: '1px solid #ddd'
 };
 
-export default InventoryDashboard;
+export default Distribution;
