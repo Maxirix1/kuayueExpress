@@ -6,6 +6,7 @@ import Tracking from './pages/homeAdmin.js'
 import { Routes, Route } from 'react-router-dom';
 import List from './pages/list.js';
 import Branch from './pages/branchdata.js'
+import Distribution from './pages/distribution.js'
 function App() {
   return (
     // <div>
@@ -18,6 +19,7 @@ function App() {
         <Route path='/homeAdmin/main' element={<Tracking />} />
         <Route path='/homeAdmin/list' element={<List />} />
         <Route path='/homeAdmin/data' element={<Branch />} />
+        <Route path='/homeAdmin/distribution' element={<Distribution />} />
         </Routes>
   );
 }

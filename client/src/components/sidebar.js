@@ -9,11 +9,11 @@ function Sidebar({ isOpen, toggleSidebar }) {
       <button className="close-btn" onClick={toggleSidebar}>
         &times;
       </button>
-      <h1 className='text-3xl mt-10 text-center mb-4'>การจัดการ</h1>
+      <h1 className='text-2xl mt-2 mb-4'>การจัดการ</h1>
       <ul>
-        <li className='active'><Link to="/homeAdmin">หน้าแรก</Link></li>
-        <li><Link to="/homeAdmin/list">รายการพัสดุ</Link></li>
-        <li><Link to="/">กระจายพัสดุ</Link></li>
+        <li><Link to="/homeAdmin">หน้าแรก</Link></li>
+        <li className='pl-2'><Link to="/homeAdmin/list">รายการพัสดุ</Link></li>
+        <li  className='active'><Link to="/homeAdmin/distribution">กระจายพัสดุ</Link></li>
         <li><Link to="/homeAdmin/data">ข้อมูลสาขา</Link></li>
       </ul>
       <div className='m-8'>
