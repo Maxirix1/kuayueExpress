@@ -159,7 +159,7 @@ function Home() {
         </div>
         <h1>Contact</h1>
         <Link to="https://www.facebook.com/profile.php?id=61551089827548&mibextid=LQQJ4d" className="flex items-center justify-center pt-9">
-                <img src={Facebook} className="w-12"></img>
+                <img src={Facebook} className="w-12" alt="facebook"></img>
             </Link>
     </footer>
 

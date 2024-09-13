@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 const Home = () => (
   <div>
@@ -63,7 +63,7 @@ const Dashboard = () => {
   const [activePage, setActivePage] = useState("home");
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
-  const location = useLocation();
+  // const location = useLocation();
 
   useEffect(() => {
     const handleResize = () => {
@@ -193,7 +193,7 @@ const Dashboard = () => {
           flex: 1,
           overflow: "auto",
           padding: "20px",
-          marginLeft: isMobile ? "0" : "250px",
+          // marginLeft: isMobile ? "0" : "250px",
           transition: "margin-left 0.3s",
         }}
       >
