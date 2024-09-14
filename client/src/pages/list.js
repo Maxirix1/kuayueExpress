@@ -4,7 +4,7 @@ import '../style/font-style.css';
 
 const  InventoryDashboard = () => {
   const [inventoryData] = useState([
-    { id: 1, name: 'chowguy', category: 'Food', price: 100, details: 'Chowguy duangdee' },
+    { id: 1, name: 'Rattana', category: 'a folder of law', price: 100, details: 'law of KSP' },
     { id: 2, name: 'Item 2', category: 'Category B', price: 200, details: 'Details 2' },
     { id: 3, name: 'Item 3', category: 'Category A', price: 150, details: 'Details 3' },
   ]);
