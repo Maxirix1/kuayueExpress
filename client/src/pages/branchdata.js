@@ -98,7 +98,7 @@ const BranchDashboard = () => {
           )}
         </div>
         <nav style={{ flex: 1 }}>
-          <Link to="/homeAdmin/firstpage" style={sidebarLinkStyle('firstpage')} onClick={() => { setActivePage('home'); isMobile && toggleSidebar(); }}>หน้าแรก</Link>
+          <Link to="/homeAdmin" style={sidebarLinkStyle('inventorystatistics')} onClick={() => { setActivePage('inventorystatistics'); isMobile && toggleSidebar(); }}>หน้าแรก</Link>
           <Link to="/homeAdmin/list" style={sidebarLinkStyle('inventory')} onClick={() => { setActivePage('inventory'); isMobile && toggleSidebar(); }}>รายการพัสดุ</Link>
           <Link to="/homeAdmin/distribution" style={sidebarLinkStyle('distribution')} onClick={() => { setActivePage('distribution'); isMobile && toggleSidebar(); }}>กระจายพัสดุ</Link>
           <Link to="/homeAdmin/data" style={sidebarLinkStyle('branches')} onClick={() => { setActivePage('branches'); isMobile && toggleSidebar(); }}>ข้อมูลสาขา</Link>
