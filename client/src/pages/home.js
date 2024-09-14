@@ -105,11 +105,6 @@ function Home() {
             <div className="flex flex-col align-center justify-around 2xl:flex-row gap-10 ">
               <div className="flex gap-10 mb-10">
                 <Card />
-                <Card />
-              </div>
-              <div className="flex gap-10">
-                <Card />
-                <Card />
               </div>
             </div>
           </div>
