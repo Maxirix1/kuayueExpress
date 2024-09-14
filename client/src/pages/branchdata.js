@@ -147,19 +147,21 @@ const BranchDashboard = () => {
               <span style={{ marginRight: '20px' }}>วันที่ {new Date().toLocaleDateString('th-TH')}</span>
               <span style={{ marginRight: '20px' }}>{new Date().toLocaleTimeString('th-TH', { hour: '2-digit', minute: '2-digit' })}</span>
               <span>{'{ USERNAME }'} | {'{ ตำแหน่ง โกดัง หรือสาขาที่ประจำอยู่ }'}</span>
-              <button 
-                style={{
-                  marginLeft: '20px',
-                  padding: '8px 16px',
-                  backgroundColor: '#4a69bd',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '5px',
-                  cursor: 'pointer',
-                }}
-              >
-                หน้าแรก
-              </button>
+              <Link
+              to="/"
+              style={{
+              marginLeft: '20px',
+              padding: '8px 16px',
+              backgroundColor: '#4a69bd',
+              color: 'white',
+              border: 'none',
+              borderRadius: '5px',
+              textDecoration: 'none',
+              cursor: 'pointer',
+              }}
+            >
+              หน้าเเรก
+                </Link>
             </div>
           )}
         </header>
