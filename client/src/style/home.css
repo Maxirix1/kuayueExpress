@@ -195,7 +195,7 @@ header nav ul li a {
     text-align: center;
 }
 .contentButtonPosition div {
-    background: rgb(31, 124, 255);
+    /* background: rgb(31, 124, 255); */
     padding: 35px 45px;
     border-radius: 20px;
     width: 450px;
@@ -272,4 +272,28 @@ footer h1 {
 
 .webService {
     padding: 0 27vw;
+}
+.buttonFirst {
+    background:linear-gradient(to right, rgb(13, 9, 134) 30%, rgba(0, 0, 0, 0.185) 100%), url('../assets/flagthai.jpg'); 
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.buttonSecond {
+    background:linear-gradient(to right, rgb(13, 9, 134) 30%, rgba(0, 0, 0, 0.185) 100%), url('../assets/flagChina.jpg');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.buttonThird {
+    background:linear-gradient(to right, rgb(13, 9, 134) 30%, rgba(0, 0, 0, 0.185) 100%), url('../assets/flagLao.jpg'); 
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.buttonFour {
+    background:linear-gradient(to right, rgb(13, 9, 134) 30%, rgba(0, 0, 0, 0.185) 100%), url('../assets/flagthai.jpg'); 
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
 }

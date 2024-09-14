@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../style/home.css";
 import "../style/main.css";
 import "../style/responsive.css";
@@ -9,21 +9,9 @@ import China from "../assets/china.png";
 import Branch from "../assets/branch.png";
 import { Link } from "react-router-dom";
 import Facebook from "../assets/facebook.png";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import IconSlide from "../components/iconslide";
 
 function Home() {
-  const [settings] = useState({
-    dots: true,
-    infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 2000,
-    cssEase: "linear",
-  });
   return (
     <div className="maincontainer">
       <header>
@@ -147,7 +135,7 @@ function Home() {
         </div>
       </div>
 
-      <div className="containerAbout">
+      <div className="containerAbout mx-60">
         <h1>
           <span>|</span> ລາຍລະອຽດສາງຂົນສົ່ງ
         </h1>
@@ -166,22 +154,10 @@ function Home() {
           </p>
         </div>
       </div>
-
-      <Slider {...settings}>
-        <div>
-          <img src="path/to/icon1.png" alt="Icon 1" />
-        </div>
-        <div>
-          <img src="path/to/icon2.png" alt="Icon 2" />
-        </div>
-        <div>
-          <img src="path/to/icon3.png" alt="Icon 3" />
-        </div>
-        {/* เพิ่ม icon ที่ต้องการ */}
-      </Slider>
+      <IconSlide />
 
       <footer>
-        <div className="logo">
+        <div className="logo w-full h-auto mt-10">
           <img src={Logo} alt="logo" />
         </div>
         <div className="navfooter">
