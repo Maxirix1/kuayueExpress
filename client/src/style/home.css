@@ -167,9 +167,21 @@ header nav ul li a {
 .containerMainContent {
     padding: 3vh 10vw;
 }
+.contentSlide {
+    padding: 0 10vw;
+    padding-top: 5vh;
+}
+.contentSlide h1{
+    font-size: 1.5rem;
+    font-weight: 400;
+}
 .containerDetails h1 {
     font-size: 1.5rem;
     font-weight: 400;
+}
+.contentSlide span {
+    font-weight: 900;
+    color: #8044CC;
 }
 .containerDetails span {
     font-weight: 900;
@@ -180,7 +192,7 @@ header nav ul li a {
     flex-direction: column;
     background-color: #fff;
     width: 100%;
-    padding: 5vh 10vw;
+    padding: 5vh 15vw;
     margin-bottom: 30px;
     border-radius: 20px;
 }
@@ -191,9 +203,7 @@ header nav ul li a {
     justify-content: center;
     /* flex-wrap: wrap; */
 }
-.second div a {
-    text-align: center;
-}
+ 
 .contentButtonPosition div {
     /* background: rgb(31, 124, 255); */
     padding: 35px 45px;
@@ -201,11 +211,16 @@ header nav ul li a {
     width: 450px;
     height: 200px;
     margin: 20px;
+    display: flex;
+    align-items: start;
+    justify-content: end;
 }
 .contentButtonPosition div a {
-    color: #fff;
+    color: #ffffff;
     text-shadow: 2px 2px 5px #00000036;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-shadow: 3px 3px 6px #000000;
     text-align: center;
 }
 .containerAbout {
@@ -231,8 +246,9 @@ header nav ul li a {
 }
 footer {
     background-color: #8044CC;
-    height: 40vh;
+    height: 30vh;
 }
+
 footer .logo {
     background-color: #fff;
     width: 100%;
@@ -271,29 +287,34 @@ footer h1 {
 }
 
 .webService {
-    padding: 0 27vw;
+    padding: 0 15vw;
 }
+
+
 .buttonFirst {
-    background:linear-gradient(to right, rgb(13, 9, 134) 30%, rgba(0, 0, 0, 0.185) 100%), url('../assets/flagthai.jpg'); 
+    background:linear-gradient(to left, #8044CC 20%, rgba(0, 0, 0, 0.185) 100%), url('../assets/flagthai.jpg'); 
     background-size: cover; 
     background-position: center;
     background-repeat: no-repeat;
 }
 .buttonSecond {
-    background:linear-gradient(to right, rgb(13, 9, 134) 30%, rgba(0, 0, 0, 0.185) 100%), url('../assets/flagChina.jpg');
+    background:linear-gradient(to left, #8044CC 20%, rgba(0, 0, 0, 0.185) 100%), url('../assets/flagChina.jpg');
     background-size: cover; 
-    background-position: center;
+    background-position: start;
     background-repeat: no-repeat;
 }
 .buttonThird {
-    background:linear-gradient(to right, rgb(13, 9, 134) 30%, rgba(0, 0, 0, 0.185) 100%), url('../assets/flagLao.jpg'); 
+    background:linear-gradient(to left, #8044CC 20%, rgba(0, 0, 0, 0.185) 100%), url('../assets/flagLao.jpg'); 
     background-size: cover; 
     background-position: center;
     background-repeat: no-repeat;
 }
 .buttonFour {
-    background:linear-gradient(to right, rgb(13, 9, 134) 30%, rgba(0, 0, 0, 0.185) 100%), url('../assets/flagthai.jpg'); 
+    background:linear-gradient(to left, #8044CC 20%, rgba(0, 0, 0, 0.185) 100%), url('../assets/flagVietnam.jpg'); 
     background-size: cover; 
     background-position: center;
     background-repeat: no-repeat;
+}
+.contentButtonPosition section > div {
+    box-shadow: 4px 5px 6px #0000006c;
 }

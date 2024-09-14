@@ -10,6 +10,7 @@ import Branch from "../assets/branch.png";
 import { Link } from "react-router-dom";
 import Facebook from "../assets/facebook.png";
 import IconSlide from "../components/iconslide";
+import Card from "../components/card";
 
 function Home() {
   return (
@@ -27,10 +28,10 @@ function Home() {
               <a href="/">| About</a>
             </li>
             <li>
-              <a href="/Tracking">| ติดตามพัสดุ</a>
+              <a href="/Tracking">| ຕິດຕາມພັດສະດຸ</a>
             </li>
             <li>
-              <a href="/">| คำนวณค่าขนส่ง</a>
+              <a href="/">| ຄຳນວນຄ່າຂົນສົ່ງ</a>
             </li>
           </ul>
         </nav>
@@ -96,15 +97,21 @@ function Home() {
 
       <div className="webService">
         <div className="serviceDetails">
-          <h1>
-            <span>|</span> บริการของเรา
+          <h1 className="text-2xl my-10 2xl">
+            <span className="text-[#8044CC] font-extrabold">|</span>{" "}
+            ລາຍລະອຽດທີ່ຢູ່ສາງ
           </h1>
-
-          <div className="service">
-            <div>บริการ</div>
-            <div>บริการ</div>
-            <div>บริการ</div>
-            <div>บริการ</div>
+          <div className="flex gap-20 align-center justify-center">
+            <div className="flex flex-col align-center justify-around 2xl:flex-row gap-10 ">
+              <div className="flex gap-10 mb-10">
+                <Card />
+                <Card />
+              </div>
+              <div className="flex gap-10">
+                <Card />
+                <Card />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -137,7 +144,7 @@ function Home() {
 
       <div className="containerAbout mx-60">
         <h1>
-          <span>|</span> ລາຍລະອຽດສາງຂົນສົ່ງ
+          <span>|</span> ພາລະກິດຂອງພວກເຮົາ
         </h1>
 
         <div className="content">
@@ -154,6 +161,12 @@ function Home() {
           </p>
         </div>
       </div>
+
+      <div className="contentSlide">
+        <h1>
+          <span>|</span> ບັນດາຄູ່ຄ້າຂອງພວກເຮົາ
+        </h1>
+      </div>
       <IconSlide />
 
       <footer>
@@ -169,20 +182,22 @@ function Home() {
               <a href="/">| About</a>
             </li>
             <li>
-              <a href="/">| ติดตามพัสดุ</a>
+              <a href="/">| ຕິດຕາມພັດສະດຸ</a>
             </li>
             <li>
-              <a href="/">| คำนวณค่าขนส่ง</a>
+              <a href="/">| ຄຳນວນຄ່າຂົນສົ່ງ</a>
             </li>
           </ul>
         </div>
         <h1>Contact</h1>
-        <Link
-          to="https://www.facebook.com/profile.php?id=61551089827548&mibextid=LQQJ4d"
-          className="flex items-center justify-center pt-9"
-        >
-          <img src={Facebook} className="w-12" alt="facebook"></img>
-        </Link>
+        <div className="w-full flex items-center justify-center my-10">
+          <Link
+            to="https://www.facebook.com/profile.php?id=61551089827548&mibextid=LQQJ4d"
+            className="w-96 flex items-center justify-center py-6 bg-[#126cfd] rounded-xl "
+          >
+            <img src={Facebook} className="w-12 facebook" alt="facebook"></img>
+          </Link>
+        </div>
       </footer>
     </div>
   );
