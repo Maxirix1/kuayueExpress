@@ -75,41 +75,27 @@ function Home() {
 
             <h1>|</h1>
 
-            <a className="secondButton" href="/link">
+            <Link className="secondButton" to="/calculateTh">
               <img src={Thai} alt="thai icon" />
               <h3>ຄ່າບໍລິການຂົນສົ່ງ ໄທ</h3>
-            </a>
+            </Link>
             <h1>|</h1>
 
-            <a className="thirdButton" href="/link">
+            <Link className="thirdButton" to="/calculateChina">
               <img src={China} alt="china icon" />
               <h3>ຄ່າບໍລິການຂົນສົ່ງ ຈີນ</h3>
-            </a>
+            </Link>
           </div>
         </div>
 
-        <div className="loginLink">
+        {/* <div className="loginLink">
           <Link to="/login" className="buttonLogin">
             ສະໝັກສະມາຊິກ & ເຂົ້າສູ່ລະບົບ
           </Link>
-        </div>
+        </div> */}
       </div>
 
-      <div className="webService">
-        <div className="serviceDetails">
-          <h1 className="text-2xl my-10 2xl">
-            <span className="text-[#8044CC] font-extrabold">|</span>{" "}
-            ລາຍລະອຽດທີ່ຢູ່ສາງ
-          </h1>
-          <div className="flex gap-20 align-center justify-center">
-            <div className="flex flex-col align-center justify-around 2xl:flex-row gap-10 ">
-              <div className="flex gap-10 mb-10">
                 <Card />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <div className="containerDetails">
         <h1>

@@ -7,6 +7,8 @@ import { Routes, Route } from 'react-router-dom';
 import List from './pages/list.js';
 import Branch from './pages/branchdata.js'
 import Firstpage from './pages/firstpage.js'
+import CalculateTH from './pages/calculateTH.js';
+import CalculateChina from './pages/calculateChina.js';
 function App() {
   return (
     // <div>
@@ -20,6 +22,8 @@ function App() {
         <Route path='/homeAdmin/list' element={<List />} />
         <Route path='/homeAdmin/data' element={<Branch />} />
         <Route path='/homeAdmin' element={<Firstpage />} />
+        <Route path='/calculateTH' element={<CalculateTH />} />
+        <Route path='/calculateChina' element={<CalculateChina />} />
       </Routes>
   );
 }
