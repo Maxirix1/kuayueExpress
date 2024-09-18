@@ -28,7 +28,7 @@ function Home() {
               <a href="/">| About</a>
             </li>
             <li>
-              <a href="/Tracking">| ຕິດຕາມພັດສະດຸ</a>
+              <a href="/">| ຕິດຕາມພັດສະດຸ</a>
             </li>
             <li>
               <a href="/">| ຄຳນວນຄ່າຂົນສົ່ງ</a>
@@ -68,7 +68,7 @@ function Home() {
             </div>
           </div>
           <div className="buttonLink">
-            <a className="firstButton" href="/link">
+            <a className="firstButton" href="#address">
               <img src={Branch} alt="branch icon" />
               <h3>ຂໍ້ມູນສາຂາທັງໝົດ</h3>
             </a>
@@ -102,7 +102,7 @@ function Home() {
           <span>|</span> ລາຍລະອຽດສາງຂົນສົ່ງ
         </h1>
 
-        <div className="contentButtonPosition">
+        <div className="contentButtonPosition" id="address">
           <section className="first">
             <div className="buttonFirst">
               <a href="/">ທີ່ຢູ່ສາງປະເທດ ໄທ</a>
@@ -171,10 +171,10 @@ function Home() {
           </ul>
         </div>
         <h1>Contact</h1>
-        <div className="w-full flex items-center justify-center my-10">
+        <div className="w-full flex items-center justify-center mt-10 pb-4">
           <Link
             to="https://www.facebook.com/profile.php?id=61551089827548&mibextid=LQQJ4d"
-            className="w-96 flex items-center justify-center py-6 bg-[#126cfd] rounded-xl "
+            className="w-96 flex items-center justify-center py-4 bg-[#126cfd] rounded-xl "
           >
             <img src={Facebook} className="w-12 facebook" alt="facebook"></img>
           </Link>
