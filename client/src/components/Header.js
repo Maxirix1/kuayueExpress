@@ -2,10 +2,14 @@ import React from 'react';
 import '../style/Header.css';
 
 function Header() {
+  // const [username, setUsername] = useState();
+  // const [position, setPosition] = useState();
+  // const [currentDate, setcurrentDate] = useState();
+
   return (
     <div className="header">
       <div className="date-info">
-        วันที่ XX/XX/XX<br />
+         XX/XX/XX<br />
         XX:XX
       </div>
       <div className="user-info">

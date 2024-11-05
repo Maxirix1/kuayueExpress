@@ -1,73 +1,142 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import '../style/font-style.css';
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
-const  DistributionDashboard = () => {
-  const [inventoryData] = useState([
-    { id: 1, name: 'chowguy', category: 'Food', price: 100, details: 'Chowguy duangdee' },
-    { id: 2, name: 'Item 2', category: 'Category B', price: 200, details: 'Details 2' },
-    { id: 3, name: 'Item 3', category: 'Category A', price: 150, details: 'Details 3' },
-  ]);
+import Parcel from "../components/origin";
+import Details from "../components/parcel";
+import Spread from "../components/spread";
+import ParcelWait from "../components/parcelwaitsave";
+import "../style/font-style.css";
+import axios from "axios";
 
-  const [activePage, setActivePage] = useState('distribution');
+const DistributionDashboard = () => {
+  const navigate = useNavigate();
+  const { username, role } = useAuth();
+
+  const [activePage, setActivePage] = useState("distribution");
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  // const storedRole = localStorage.getItem("role");
+  const storedBranch = localStorage.getItem("branch");
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const storedRole = localStorage.getItem("role");
+
+    if (!token) {
+      navigate("/login");
+    } else if (storedRole !== "admin") {
+      navigate("/forbidden");
+    }
+  }, [navigate]);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth <= 870);
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
     handleResize();
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/login");
+  };
+
   const sidebarLinkStyle = (page) => ({
-    display: 'block',
-    color: 'white',
-    textDecoration: 'none',
-    padding: '10px',
-    marginBottom: '5px',
-    borderRadius: '5px',
-    paddingRight: '10px',
-    backgroundColor: activePage === page ? '#34495e' : 'transparent',
-    transition: 'background-color 0.3s',
+    display: "block",
+    color: "white",
+    textDecoration: "none",
+    padding: "10px",
+    marginBottom: "5px",
+    borderRadius: "5px",
+    paddingRight: "10px",
+    backgroundColor: activePage === page ? "#34495e" : "transparent",
+    transition: "background-color 0.3s",
   });
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
   };
 
+  const [parcelData, setParcelData] = useState({});
+  const [detailData, setDetailData] = useState({});
+
+  const handleParcelChange = (data) => {
+    setParcelData(data);
+  };
+
+  const handleDetailChange = (data) => {
+    setDetailData(data);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const fullData = {
+      parcel: parcelData,
+      detail: detailData,
+    };
+
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/saveData",
+        fullData
+      );
+      console.log("Data Save Successfully:", response.data);
+      window.location.reload();
+    } catch (error) {
+      console.log("Error Save data | Try again", error);
+    }
+  };
+
   return (
-    <div style={{ display: 'flex', height: '100vh', fontFamily: 'Arial, sans-serif' }}>
+    <div
+      style={{
+        display: "flex",
+        height: "100vh",
+        fontFamily: "Arial, sans-serif",
+      }}
+    >
+
       {/* Sidebar */}
-      <aside style={{
-        width: isMobile ? (sidebarOpen ? '100%' : '0') : '250px',
-        height: '100vh',
-        backgroundColor: '#2a2d39',
-        color: 'white',
-        padding: sidebarOpen ? '20px' : '0',
-        display: 'flex',
-        flexDirection: 'column',
-        transition: 'all 0.3s',
-        overflow: 'hidden',
-        position: isMobile ? 'fixed' : 'relative',
-        zIndex: 1000,
-        left: isMobile ? (sidebarOpen ? '0' : '-100%') : '0',
-      }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-          <h2 style={{ fontSize: '24px', margin: 0 }}>การจัดการ</h2>
+      <aside
+        style={{
+          width: isMobile ? (sidebarOpen ? "100%" : "0") : "250px",
+          height: "100vh",
+          backgroundColor: "#2a2d39",
+          color: "white",
+          padding: sidebarOpen ? "20px" : "0",
+          display: "flex",
+          flexDirection: "column",
+          transition: "all 0.3s",
+          overflow: "hidden",
+          position: isMobile ? "fixed" : "relative",
+          zIndex: 1000,
+          left: isMobile ? (sidebarOpen ? "0" : "-100%") : "0",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginBottom: "20px",
+          }}
+        >
+          <h2 style={{ fontSize: "24px", margin: 0 }}>การจัดการ</h2>
           {isMobile && (
             <button
               onClick={toggleSidebar}
               style={{
-                background: 'none',
-                border: 'none',
-                color: 'white',
-                fontSize: '24px',
-                cursor: 'pointer',
+                background: "none",
+                border: "none",
+                color: "white",
+                fontSize: "24px",
+                cursor: "pointer",
               }}
             >
               ✕
@@ -75,223 +144,156 @@ const  DistributionDashboard = () => {
           )}
         </div>
         <nav style={{ flex: 1 }}>
-          <Link to="/homeAdmin" style={sidebarLinkStyle('inventorystatistics')} onClick={() => { setActivePage('inventorystatistics'); isMobile && toggleSidebar(); }}>หน้าแรก</Link>
-          <Link to="/homeAdmin/list" style={sidebarLinkStyle('inventory')} onClick={() => { setActivePage('inventory'); isMobile && toggleSidebar(); }}>รายการพัสดุ</Link>
-          <Link to="/homeAdmin/distribution" style={sidebarLinkStyle('distribution')} onClick={() => { setActivePage('distribution'); isMobile && toggleSidebar(); }}>กระจายพัสดุ</Link>
-          <Link to="/homeAdmin/data" style={sidebarLinkStyle('branches')} onClick={() => { setActivePage('branches'); isMobile && toggleSidebar(); }}>ข้อมูลสาขา</Link>
+          <Link
+            to="/homeAdmin/main"
+            style={sidebarLinkStyle("inventorystatistics")}
+            onClick={() => {
+              setActivePage("inventorystatistics");
+              isMobile && toggleSidebar();
+            }}
+          >
+            หน้าแรก
+          </Link>
+          <Link
+            to="/homeAdmin/list"
+            style={sidebarLinkStyle("inventory")}
+            onClick={() => {
+              setActivePage("inventory");
+              isMobile && toggleSidebar();
+            }}
+          >
+            รายการพัสดุ
+          </Link>
+          <Link
+            to="/homeAdmin/distribution"
+            style={sidebarLinkStyle("distribution")}
+            onClick={() => {
+              setActivePage("distribution");
+              isMobile && toggleSidebar();
+            }}
+          >
+            กระจายพัสดุ
+          </Link>
+          <Link
+            to="/homeAdmin/branch"
+            style={sidebarLinkStyle("branches")}
+            onClick={() => {
+              setActivePage("branches");
+              isMobile && toggleSidebar();
+            }}
+          >
+            ข้อมูลสาขา
+          </Link>
         </nav>
         <button
           style={{
-            width: '100%',
-            padding: '10px',
-            backgroundColor: '#e74c3c',
-            color: 'white',
-            border: 'none',
-            borderRadius: '5px',
-            cursor: 'pointer',
-            transition: 'background-color 0.3s',
+            width: "100%",
+            padding: "10px",
+            backgroundColor: "#e74c3c",
+            color: "white",
+            border: "none",
+            borderRadius: "5px",
+            cursor: "pointer",
+            transition: "background-color 0.3s",
           }}
-          onMouseOver={(e) => e.target.style.backgroundColor = '#c0392b'}
-          onMouseOut={(e) => e.target.style.backgroundColor = '#e74c3c'}
-          onClick={() => console.log('Logout')}
+          onMouseOver={(e) => (e.target.style.backgroundColor = "#c0392b")}
+          onMouseOut={(e) => (e.target.style.backgroundColor = "#e74c3c")}
+          onClick={handleLogout}
         >
           LOGOUT
         </button>
       </aside>
 
       {/* Main content */}
-      <main style={{ flex: 1, overflow: 'auto', padding: '20px' }}>
-        <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
+      <main style={{ flex: 1, overflow: "auto", padding: "20px" }}>
+        <header
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginBottom: "20px",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center" }}>
             {isMobile && (
               <button
                 onClick={toggleSidebar}
                 style={{
-                  background: 'none',
-                  border: 'none',
-                  fontSize: '24px',
-                  cursor: 'pointer',
-                  marginRight: '10px'
+                  background: "none",
+                  border: "none",
+                  fontSize: "24px",
+                  cursor: "pointer",
+                  marginRight: "10px",
                 }}
               >
                 ☰
               </button>
             )}
-            <h1 style={{ fontSize: '24px', margin: '0' }}>การกระจายพัสดุ</h1>
+            <h1 style={{ fontSize: "24px", margin: "0" }}>การกระจายพัสดุ</h1>
           </div>
           {!isMobile && (
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <span style={{ marginRight: '20px' }}>วันที่ {new Date().toLocaleDateString('th-TH')}</span>
-              <span style={{ marginRight: '20px' }}>{new Date().toLocaleTimeString('th-TH', { hour: '2-digit', minute: '2-digit' })}</span>
-              <span>{'{ USERNAME }'} | {'{ ตำแหน่ง โกดัง หรือสาขาที่ประจำอยู่ }'}</span>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <span style={{ marginRight: "20px" }}>
+                {" "}
+                {new Date().toLocaleDateString("th-TH")}
+              </span>
+              <span style={{ marginRight: "20px" }}>
+                {new Date().toLocaleTimeString("th-TH", {
+                  hour: "2-digit",
+                  minute: "2-digit",
+                })}
+              </span>
+              <span>
+                {username} | {role}
+              </span>
               <Link
-              to="/"
-              style={{
-              marginLeft: '20px',
-              padding: '8px 16px',
-              backgroundColor: '#4a69bd',
-              color: 'white',
-              border: 'none',
-              borderRadius: '5px',
-              textDecoration: 'none',
-              cursor: 'pointer',
-              }}
-            >
-              หน้าเเรก
-                </Link>
+                to="/"
+                style={{
+                  marginLeft: "20px",
+                  padding: "8px 16px",
+                  backgroundColor: "#4a69bd",
+                  color: "white",
+                  border: "none",
+                  borderRadius: "5px",
+                  textDecoration: "none",
+                  cursor: "pointer",
+                }}
+              >
+                หน้าเเรก
+              </Link>
             </div>
           )}
         </header>
 
-        <div style={{ overflowX: 'auto' }}>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', marginBottom: '20px' }}>
-          {/* Origin Section */}
-          <div style={{ flex: 1, minWidth: '300px', borderRadius: '10px', overflow: 'hidden', boxShadow: '0 2px 5px rgba(0,0,0,0.1)' }}>
-            <div style={gradientHeaderStyle('#4CAF50', '#45a049')}>
-              <h2 style={{ margin: 0, color: 'white' }}>ต้นทาง</h2>
-            </div>
-            <div style={bodyStyle}>
-              <div style={{ marginBottom: '10px' }}>
-                <label style={labelStyle}>สาขา :</label>
-                <input type="text" value="{ โกดัง หรือสาขาที่ประจำอยู่ }" readOnly style={inputStyle} />
+        <div style={{ overflowX: "auto" }}>
+          {storedBranch === "LAO Warehouse" ? (
+            <>
+              <Parcel onParcelChange={handleParcelChange} />
+              <Details onDetailsChange={handleDetailChange} />
+              <div className="flex align-center justify-end mt-4">
+                <button
+                  type="submit"
+                  onClick={handleSubmit}
+                  className="text-lg font-medium px-14 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                >
+                  Save
+                </button>
               </div>
-              <div style={{ marginBottom: '10px', display: 'flex', gap: '10px' }}>
-                <div style={{ flex: 1 }}>
-                  <label style={labelStyle}>เบอร์ผู้ส่ง :</label>
-                  <div style={{ display: 'flex' }}>
-                    <select style={{ ...inputStyle, width: '80px', borderRadius: '5px 0 0 5px' }}>
-                      <option>+66</option>
-                    </select>
-                    <input type="tel" placeholder="XX-XXX-XXXX" style={{ ...inputStyle, flex: 1, borderRadius: '0 5px 5px 0' }} />
-                  </div>
-                </div>
-              </div>
-              <div style={{ marginBottom: '10px' }}>
-                <label style={labelStyle}>ชื่อผู้ส่ง :</label>
-                <input type="text" placeholder="Name Lastname" style={inputStyle} />
-              </div>
-              <div style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
-                <label style={{ display: 'flex', alignItems: 'center' }}>
-                  <input type="checkbox" style={{"margin-right": '5px'}} /> เร่งด่วน
-                </label>
-                <label style={{ display: 'flex', alignItems: 'center' }}>
-                  <input type="checkbox" style={{"margin-right": '5px'}} /> รับที่โกดัง
-                </label>
-              </div>
-              <div>
-                <label style={labelStyle}>หมายเหตุ :</label>
-                <textarea placeholder="เพิ่มหมายเหตุ" style={{ ...inputStyle, height: '80px' }}></textarea>
-              </div>
-            </div>
-          </div>
 
-          {/* Destination Section */}
-          <div style={{ flex: 1, minWidth: '300px', borderRadius: '10px', overflow: 'hidden', boxShadow: '0 2px 5px rgba(0,0,0,0.1)' }}>
-            <div style={gradientHeaderStyle('#3498db', '#2980b9')}>
-              <h2 style={{ margin: 0, color: 'white' }}>ปลายทาง</h2>
-            </div>
-            <div style={bodyStyle}>
-              <div style={{ marginBottom: '10px' }}>
-                <label style={labelStyle}>สาขา :</label>
-                <select style={inputStyle}>
-                  <option>เลือกสาขา</option>
-                </select>
-              </div>
-              <div style={{ marginBottom: '10px', display: 'flex', gap: '10px' }}>
-                <div style={{ flex: 1 }}>
-                  <label style={labelStyle}>เบอร์ผู้รับ :</label>
-                  <div style={{ display: 'flex' }}>
-                    <select style={{ ...inputStyle, width: '80px', borderRadius: '5px 0 0 5px' }}>
-                      <option>+66</option>
-                    </select>
-                    <input type="tel" placeholder="XX-XXX-XXXX" style={{ ...inputStyle, flex: 1, borderRadius: '0 5px 5px 0' }} />
-                  </div>
-                </div>
-              </div>
-              <div style={{ marginBottom: '10px' }}>
-                <label style={labelStyle}>ชื่อผู้รับ :</label>
-                <input type="text" placeholder="Name Lastname" style={inputStyle} />
-              </div>
-              <div style={{ marginBottom: '10px' }}>
-                <label style={{ display: 'flex', alignItems: 'center' }}>
-                  <input type="checkbox" style={{"margin-right": '5px'}} /> รับที่สาขา
-                </label>
-              </div>
-              <div>
-                <label style={labelStyle}>หมายเหตุ :</label>
-                <textarea placeholder="เพิ่มหมายเหตุ" style={{ ...inputStyle, height: '80px' }}></textarea>
-              </div>
-            </div>
-          </div>
-        </div>
+              <hr className="my-6" />
+              <ParcelWait />
+            </>
+          ) : (
+            <>
+              <Spread />
+            </>
+          )}
 
-        {/* Item Details Section */}
-        <div style={{ borderRadius: '10px', overflow: 'hidden', boxShadow: '0 2px 5px rgba(0,0,0,0.1)' }}>
-          <div style={gradientHeaderStyle('#f1c40f', '#f39c12')}>
-            <h2 style={{ margin: 0, color: 'white'}}>ข้อมูลพัสดุ</h2>
-          </div>
-          <div style={bodyStyle}>
-            <div style={{ display: 'grid', gap: '15px', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
-              <div>
-                <label style={labelStyle}>ประเภท :</label>
-                <select style={inputStyle}>
-                  <option>เลือกประเภท</option>
-                </select>
-              </div>
-              <div>
-                <label style={labelStyle}>ขนาด(cm) :</label>
-                <div style={{ display: 'flex', gap: '5px' }}>
-                  <input type="number" placeholder="กว้าง" style={{ ...inputStyle, flex: 1 }} />
-                  <input type="number" placeholder="ยาว" style={{ ...inputStyle, flex: 1 }} />
-                  <input type="number" placeholder="สูง" style={{ ...inputStyle, flex: 1 }} />
-                </div>
-              </div>
-              <div>
-                <label style={labelStyle}>น้ำหนัก(kg) :</label>
-                <input type="number" placeholder="น้ำหนัก" style={inputStyle} />
-              </div>
-              <div>
-                <label style={labelStyle}>จำนวน :</label>
-                <input type="number" placeholder="จำนวน(ชิ้น)" style={inputStyle} />
-              </div>
-              <div>
-                <label style={labelStyle}>ราคา :</label>
-                <input type="number" placeholder="ราคา" style={inputStyle} />
-              </div>
-            </div>
-          </div>
-        </div>
+          {/* Item Details Section */}
         </div>
       </main>
     </div>
   );
-};
-
-const gradientHeaderStyle = (color1, color2) => ({
-  background: `linear-gradient(to right, ${color1}, ${color2})`,
-  padding: '15px 20px',
-  'border-radius': '20px 20px 0 0', 
-  color: 'white',
-});
-
-const bodyStyle = {
-  backgroundColor: '#f9f9f9',
-  padding: '20px',
-};
-
-const labelStyle = {
-  display: 'block',
-  marginBottom: '5px',
-  fontWeight: 'bold',
-  color: '#333',
-};
-
-const inputStyle = {
-  width: '100%',
-  padding: '8px',
-  borderRadius: '5px',
-  border: '1px solid #ccc',
-  boxSizing: 'border-box',
 };
 
 export default DistributionDashboard;

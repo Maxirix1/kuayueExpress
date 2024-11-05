@@ -1,6 +1,7 @@
 import React from "react";
 import "../style/home.css";
 import "../style/main.css";
+import "../style/font-style.css";
 import "../style/responsive.css";
 import Logo from "../assets/logo.png";
 import Banner from "../assets/banner.png";
@@ -8,41 +9,23 @@ import Thai from "../assets/thailand.png";
 import China from "../assets/china.png";
 import Branch from "../assets/branch.png";
 import { Link } from "react-router-dom";
+import Navbar from "../components/navbar";
 import Facebook from "../assets/facebook.png";
 import IconSlide from "../components/iconslide";
 import Card from "../components/card";
 
 function Home() {
   return (
-    <div className="maincontainer">
-      <header>
-        <nav>
-          <div className="logo">
-            <img src={Logo} alt="logo" />
-          </div>
-          <ul>
-            <li>
-              <a href="/">| Home</a>
-            </li>
-            <li>
-              <a href="/">| About</a>
-            </li>
-            <li>
-              <a href="/">| ຕິດຕາມພັດສະດຸ</a>
-            </li>
-            <li>
-              <a href="/">| ຄຳນວນຄ່າຂົນສົ່ງ</a>
-            </li>
-          </ul>
-        </nav>
-      </header>
-      <div className="headBanner">
+    <div className="maincontainer scroll-smooth">
+      <Navbar />
+
+      <div className="headBanner pt-14 2xl:px-40">
         <img src={Banner} alt="logo" />
       </div>
 
       <div className="containerContent">
         <div className="contentBelow">
-          <div className="search">
+          <div className="search ">
             <h1>ຕິດຕາມພັດສະດຸຂອງທ່ານ</h1>
 
             <div className="inputSearch">
@@ -55,7 +38,7 @@ function Home() {
                   viewBox="0 0 24 24"
                   stroke-width="1.5"
                   stroke="currentColor"
-                  class="size-6"
+                  className="size-6"
                 >
                   <path
                     stroke-linecap="round"
@@ -88,14 +71,14 @@ function Home() {
           </div>
         </div>
 
-        {/* <div className="loginLink">
+        <div className="loginLink">
           <Link to="/login" className="buttonLogin">
-            ສະໝັກສະມາຊິກ & ເຂົ້າສູ່ລະບົບ
+            <p className="text-base md:text-xl">ສະໝັກສະມາຊິກ & ເຂົ້າສູ່ລະບົບ</p>
           </Link>
-        </div> */}
+        </div>
       </div>
 
-                <Card />
+      <Card />
 
       <div className="containerDetails">
         <h1>
@@ -123,7 +106,7 @@ function Home() {
         </div>
       </div>
 
-      <div className="containerAbout mx-60">
+      <div className="containerAbout mx-60" id="about">
         <h1>
           <span>|</span> ພາລະກິດຂອງພວກເຮົາ
         </h1>
