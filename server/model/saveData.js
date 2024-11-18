@@ -13,6 +13,10 @@ ParcelDetail.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    status: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     type_tel: {
       type: DataTypes.STRING,
       allowNull: true,
@@ -41,7 +45,7 @@ ParcelDetail.init(
       type: DataTypes.FLOAT,
       allowNull: true,
     },
-    lenght: {
+    length: {
       type: DataTypes.FLOAT,
       allowNull: true,
     },
@@ -58,15 +62,20 @@ ParcelDetail.init(
       allowNull: true,
     },
     price: {
-      type: DataTypes.STRING,
+      type: DataTypes.BIGINT,
       allowNull: true,
+    },
+    time: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
   },
   {
     sequelize, // เชื่อมต่อกับฐานข้อมูล
     modelName: "ParcelDetail",
-    tableName: "parcels_save", // ชื่อ table ในฐานข้อมูล
-    timestamps: false, // ถ้าต้องการให้ Sequelize สร้าง createdAt และ updatedAt
+    tableName: "parcels_save",
+    timestamps: false
   }
 );
 

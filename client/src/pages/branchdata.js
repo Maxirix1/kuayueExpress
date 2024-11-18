@@ -23,7 +23,7 @@ const BranchDashboard = () => {
 
     if (!token) {
       navigate("/login");
-    } else if (storedRole !== "admin") {
+    } else if (storedRole !== "admin" && storedRole !== "branch") {
       navigate("/forbidden");
     }
   }, [navigate]);

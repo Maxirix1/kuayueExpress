@@ -2,11 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import "../style/font-style.css";
+import Listproduct from "../components/listproduct";
+import ParcelBranch from "../components/parcelbranch";
+// import "../components/spread"
 
 const InventoryDashboard = () => {
   const { username, role } = useAuth();
 
   const navigate = useNavigate();
+  const storedRole = localStorage.getItem("role");
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -14,7 +18,7 @@ const InventoryDashboard = () => {
 
     if (!token) {
       navigate("/login");
-    } else if (storedRole !== "admin") {
+    } else if (storedRole !== "admin" && storedRole !== "branch") {
       navigate("/forbidden");
     }
   }, [navigate]);
@@ -23,30 +27,6 @@ const InventoryDashboard = () => {
     localStorage.removeItem("token");
     navigate("/login");
   };
-
-  const [inventoryData] = useState([
-    {
-      id: 1,
-      name: "NATTAKIT PONTAVEE",
-      category: "ALBUM FOLKLORE TAYLOR SWIFT",
-      price: 10,
-      details: "NAN",
-    },
-    {
-      id: 2,
-      name: "Item 2",
-      category: "Category B",
-      price: 200,
-      details: "Details 2",
-    },
-    {
-      id: 3,
-      name: "Item 3",
-      category: "Category A",
-      price: 150,
-      details: "Details 3",
-    },
-  ]);
 
   const [activePage, setActivePage] = useState("inventory");
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -250,85 +230,16 @@ const InventoryDashboard = () => {
           )}
         </header>
 
-        <div style={{ overflowX: "auto" }}>
-          <table
-            style={{
-              width: "100%",
-              borderCollapse: "separate",
-              borderSpacing: 0,
-              borderRadius: "10px",
-              overflow: "hidden",
-            }}
-          >
-            <thead>
-              <tr style={{ backgroundColor: "#f1f1f1" }}>
-                <th
-                  style={{ ...tableHeaderStyle, borderTopLeftRadius: "10px" }}
-                >
-                  ID
-                </th>
-                <th style={tableHeaderStyle}>ชื่อสิ่งของ</th>
-                <th style={tableHeaderStyle}>ประเภท</th>
-                <th style={tableHeaderStyle}>ราคา</th>
-                <th
-                  style={{ ...tableHeaderStyle, borderTopRightRadius: "10px" }}
-                >
-                  รายละเอียดเพิ่มเติม
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {inventoryData.map((item, index) => (
-                <tr
-                  key={item.id}
-                  style={
-                    index === inventoryData.length - 1
-                      ? { backgroundColor: "#f9f9f9" }
-                      : {}
-                  }
-                >
-                  <td
-                    style={{
-                      ...tableCellStyle,
-                      ...(index === inventoryData.length - 1
-                        ? { borderBottomLeftRadius: "10px" }
-                        : {}),
-                    }}
-                  >
-                    {item.id}
-                  </td>
-                  <td style={tableCellStyle}>{item.name}</td>
-                  <td style={tableCellStyle}>{item.category}</td>
-                  <td style={tableCellStyle}>{item.price}</td>
-                  <td
-                    style={{
-                      ...tableCellStyle,
-                      ...(index === inventoryData.length - 1
-                        ? { borderBottomRightRadius: "10px" }
-                        : {}),
-                    }}
-                  >
-                    {item.details}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        {storedRole === "branch" ? (
+          <ParcelBranch></ParcelBranch>
+        ) : (
+          <>
+            <Listproduct />
+          </>
+        )}
       </main>
     </div>
   );
-};
-
-const tableHeaderStyle = {
-  padding: "12px",
-  textAlign: "left",
-  borderBottom: "2px solid #ddd",
-};
-
-const tableCellStyle = {
-  padding: "12px",
-  borderBottom: "1px solid #ddd",
 };
 
 export default InventoryDashboard;

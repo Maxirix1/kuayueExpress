@@ -18,7 +18,7 @@ function Card() {
           <div className="flex-col align-center justify-center">
             <div className="flex gap-5 md:gap-10 mb-5 md:mb-10">
               <div className="service flex align-center justify-center ">
-                <div class="max-w-sm bg-[#fff] border border-gray-200 rounded-lg shadow ">
+                <div className="max-w-sm bg-[#fff] border border-gray-200 rounded-lg shadow ">
                   <Link href="#">
                     <img
                       className="rounded-t-lg"
@@ -28,7 +28,7 @@ function Card() {
                   </Link>
                   <div className="p-5">
                     <Link href="#">
-                      <h5 class="mb-2 text-xl font-bold tracking-tight text-[#8044CC]">
+                      <h5 className="mb-2 text-xl font-bold tracking-tight text-[#8044CC]">
                         ຂົນສົ່ງຂ້າມແດນ
                       </h5>
                     </Link>
@@ -63,7 +63,7 @@ function Card() {
             </div>
             <div className="flex gap-5 md:gap-10">
               <div className="service flex align-center justify-center ">
-                <div class="max-w-sm bg-[#fff] border border-gray-200 rounded-lg shadow ">
+                <div className="max-w-sm bg-[#fff] border border-gray-200 rounded-lg shadow ">
                   <Link href="#">
                     <img
                       className="rounded-t-lg"
@@ -85,7 +85,7 @@ function Card() {
               </div>
 
               <div className="service flex align-center justify-center ">
-                <div class="max-w-sm bg-[#fff] border border-gray-200 rounded-lg shadow ">
+                <div className="max-w-sm bg-[#fff] border border-gray-200 rounded-lg shadow ">
                   <Link href="#">
                     <img
                       className="rounded-t-lg"

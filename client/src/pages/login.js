@@ -34,13 +34,23 @@ function Login() {
       );
       console.log(response.data);
 
-      if (response.data.token && response.data.username && response.data.role && response.data.branch) {
+      if (
+        response.data.token &&
+        response.data.username &&
+        response.data.role &&
+        response.data.branch 
+        // response.data.credit
+      ) {
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("username", response.data.username);
         localStorage.setItem("role", response.data.role);
         localStorage.setItem("branch", response.data.branch);
+        // localStorage.setItem("credit", response.data.credit);
 
         if (response.data.role === "admin") {
+          setMessage(response.data.message);
+          navigate("/homeAdmin/main");
+        } else if (response.data.role === "branch") {
           setMessage(response.data.message);
           navigate("/homeAdmin/main");
         } else {
@@ -119,7 +129,7 @@ function Login() {
                   Login
                 </button>
                 <p className="text-center text-sm font-light text-gray-500 ">
-                ຍັງບໍ່ມີບັນຊີບໍ?{" "}
+                  ຍັງບໍ່ມີບັນຊີບໍ?{" "}
                   <Link
                     to="/signup"
                     className="font-medium text-[#7d00d1] hover:underline"

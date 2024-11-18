@@ -13,6 +13,8 @@ const Firstpage = lazy(() => import("./pages/firstpage.js"));
 const CalculateTH = lazy(() => import("./pages/calculateTH.js"));
 const CalculateChina = lazy(() => import("./pages/calculateChina.js"));
 const Forbidden = lazy(() => import("./pages/forbidden.js"));
+const DataParcel = lazy(() => import("./pages/data_parcel.js"));
+const ParcelCalculator = lazy(() => import("./pages/parcelcalculate.js"));
 
 function App() {
   return (
@@ -46,6 +48,8 @@ function App() {
         <Route path="/calculateTH" element={<CalculateTH />} />
         <Route path="/calculateChina" element={<CalculateChina />} />
         <Route path="/forbidden" element={<Forbidden />} />
+        <Route path="/data_parcel/:id" element={<DataParcel />} />
+        <Route path="/parcelcalculate" element={<ParcelCalculator />} />
       </Routes>
     </Suspense>
   );

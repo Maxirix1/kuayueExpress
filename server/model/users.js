@@ -33,6 +33,10 @@ User.init({
     defaultValue: '-',
     allowNull: false,
   },
+  credit: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
+  }
 }, {
   sequelize, // เชื่อมต่อกับฐานข้อมูล
   modelName: 'User',

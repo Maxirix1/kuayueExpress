@@ -8,18 +8,90 @@ const InventoryStatistics = () => {
   const navigate = useNavigate();
   const { username, role } = useAuth();
   const [totalParcels, setTotalParcels] = useState([]);
+  const [totalParcelsLao, setTotalParcelsLao] = useState([]);
+  const [totalParcelsBranch, setTotalParcelsBranch] = useState([]);
+  const [credit, setCredit] = useState(null);
+
+  const [listParcel, setListParcel] = useState();
+
+  const storedRole = localStorage.getItem("role");
+  const storedBranch = localStorage.getItem("branch");
+  // const storedCredit = localStorage.getItem("credit");
 
   useEffect(() => {
     const countParcels = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/parcels/count");
+        const response = await axios.post(
+          "http://localhost:5000/api/parcels/count",
+          { from: storedBranch }
+        );
         setTotalParcels(response.data.total);
-      }catch (error) {
+      } catch (error) {
         console.log("ERROR Count parcels | Try again");
       }
-    }
+    };
     countParcels();
+  }, [storedBranch]);
+
+  useEffect(() => {
+    const countParcelsLao = async () => {
+      try {
+        const response = await axios.post(
+          "http://localhost:5000/api/parcels/countwarehouse"
+        );
+        setTotalParcelsLao(response.data.total);
+      } catch (error) {
+        console.log("ERROR Count parcels | Try again");
+      }
+    };
+    countParcelsLao();
+  }, [storedBranch]);
+
+  useEffect(() => {
+    const fetchCredit = async () => {
+      try {
+        const response = await axios.post("http://localhost:5000/api/credit", {
+          username,
+        });
+        setCredit(response.data.credit);
+      } catch (error) {
+        console.error("Error fetch credit", error);
+      }
+    };
+
+    fetchCredit();
+  }, [username]);
+
+  useEffect(() => {
+    const listParcel = async () => {
+      try {
+        const response = await axios.post(
+          "http://localhost:5000/api/listparcel"
+        );
+        setListParcel(response.data);
+      } catch (error) {
+        console.error("Error to fetch list parcel", error);
+      }
+    };
+    listParcel();
   }, []);
+
+  useEffect(() => {
+    const countParcelBranch = async () => {
+      try {
+        const response = await axios.post(
+          "http://localhost:5000/api/parcels/countbranch",
+          {
+            username: username,
+          }
+        );
+        setTotalParcelsBranch(response.data.total);
+      } catch (error) {
+        console.error("Error Count Parcels | Try again");
+      }
+    };
+    countParcelBranch();
+  }, [username]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -27,7 +99,7 @@ const InventoryStatistics = () => {
 
     if (!token) {
       navigate("/login");
-    } else if (storedRole !== "admin") {
+    } else if (storedRole !== "admin" && storedRole !== "branch") {
       navigate("/forbidden");
     }
   }, [navigate]);
@@ -38,30 +110,6 @@ const InventoryStatistics = () => {
   };
 
   // const handleLogout = useState();
-
-  const [inventoryData] = useState([
-    {
-      id: 1,
-      name: "chowguy",
-      category: "Food",
-      price: 100,
-      details: "Chowguy duangdee",
-    },
-    {
-      id: 2,
-      name: "Item 2",
-      category: "Category B",
-      price: 200,
-      details: "Details 2",
-    },
-    {
-      id: 3,
-      name: "Item 3",
-      category: "Category A",
-      price: 150,
-      details: "Details 3",
-    },
-  ]);
 
   const [activePage, setActivePage] = useState("inventorystatistics");
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -271,10 +319,14 @@ const InventoryStatistics = () => {
           )}
         </header>
 
-        <div style={{ overflowX: "auto" }}>
-          <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
+        <div style={{ overflowX: "auto" }} className="w-full">
+          <div
+            style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}
+            className="w-full"
+          >
             <div
-              style={{ display: "flex", flexDirection: "column", gap: "20px" }}
+              style={{ display: "flex", flexDirection: "row", gap: "20px" }}
+              className="flex flex-row w-full"
             >
               {/* Total Inventory Card */}
               <div
@@ -283,11 +335,20 @@ const InventoryStatistics = () => {
                   background: "linear-gradient(135deg, #6d03aa, #4596fc)",
                   minHeight: "150px",
                 }}
+                className="w-full"
               >
-                <div>
-                  <h2 style={titleStyle}>จำนวนพัสดุทั้งหมด</h2>
-                  <h2 style={titleStyle}>ที่อยู่ในโกดัง</h2>
-                </div>
+                {storedRole === "branch" ? (
+                  <div>
+                    <h2 style={titleStyle}>จำนวนพัสดุทั้งหมด</h2>
+                    <h2 style={titleStyle}>ที่ถูกส่งมายังสาขา</h2>
+                  </div>
+                ) : (
+                  <div>
+                    <h2 style={titleStyle}>จำนวนพัสดุทั้งหมด</h2>
+                    <h2 style={titleStyle}>ที่อยู่ในโกดัง</h2>
+                  </div>
+                )}
+
                 <div
                   style={{
                     flexDirection: "column",
@@ -297,7 +358,20 @@ const InventoryStatistics = () => {
                   }}
                 >
                   <div style={valueContainerStyle}>
-                    <span style={valueStyle} className="font-semibold" >{totalParcels}</span>
+                    {storedRole === "branch" ? (
+                      <span style={valueStyle} className="font-semibold">
+                        {totalParcelsBranch}
+                      </span>
+                    ) : storedBranch === "LAO Warehouse" ? (
+                      <span style={valueStyle} className="font-semibold">
+                        {totalParcelsLao}
+                      </span>
+                    ) : (
+                      <span style={valueStyle} className="font-semibold">
+                        {totalParcels}
+                      </span>
+                    )}
+
                     <span style={unitStyle}>ชิ้น</span>
                   </div>
                   <p style={noteStyle}>
@@ -307,22 +381,10 @@ const InventoryStatistics = () => {
               </div>
 
               {/* Branch Inventory Card */}
-              <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
-                <div
-                  style={{
-                    ...cardStyle,
-                    background: "linear-gradient(135deg, #2193b0, #6dd5ed)",
-                    flex: 1,
-                    minWidth: "200px",
-                  }}
-                >
-                  <h2 style={textStyle}>จำนวนพัสดุรวมที่สาขา</h2>
-                  <div style={valueContainerStyle}>
-                    <span style={valueStyle}>xxx</span>
-                    <span style={unitStyle}>ชิ้น</span>
-                  </div>
-                </div>
-
+              <div
+                style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}
+                className="w-full"
+              >
                 {/* Total Credit Card */}
                 <div
                   style={{
@@ -332,10 +394,15 @@ const InventoryStatistics = () => {
                     minWidth: "200px",
                   }}
                 >
-                  <h2 style={titleStyle}>เครดิตรวม</h2>
+                  <h2 style={titleStyle}>เครดิต</h2>
+
                   <div style={valueContainerStyle}>
-                    <span style={valueStyle}>xxx</span>
-                    <span style={unitStyle}>pt</span>
+                    <span style={valueStyle}>
+                      {credit !== null && typeof credit !== "object"
+                        ? credit
+                        : "Loading..."}
+                    </span>
+                    <span style={unitStyle}>LAK</span>
                   </div>
                 </div>
               </div>
@@ -350,38 +417,65 @@ const InventoryStatistics = () => {
             }}
           />
 
-          <div>
-            <h2>ข้อมูลพัสดุ</h2>
-            {/* Data Table */}
-            <table
-              style={{
-                width: "100%",
-                borderCollapse: "collapse",
-                fontFamily: "Arial, sans-serif",
-              }}
-            >
-              <thead>
-                <tr>
-                  <th style={tableHeaderStyle}>#</th>
-                  <th style={tableHeaderStyle}>ชื่อพัสดุ</th>
-                  <th style={tableHeaderStyle}>ประเภท</th>
-                  <th style={tableHeaderStyle}>ราคา</th>
-                  <th style={tableHeaderStyle}>รายละเอียด</th>
-                </tr>
-              </thead>
-              <tbody>
-                {inventoryData.map((item) => (
-                  <tr key={item.id}>
-                    <td style={tableCellStyle}>{item.id}</td>
-                    <td style={tableCellStyle}>{item.name}</td>
-                    <td style={tableCellStyle}>{item.category}</td>
-                    <td style={tableCellStyle}>{item.price}</td>
-                    <td style={tableCellStyle}>{item.details}</td>
+          {storedBranch === "LAO Warehouse" ? (
+            <div>
+              <h2>พัสดุที่อยู่ในโกดัง</h2>
+              {/* Data Table */}
+              <table className="min-w-full leading-normal">
+                <thead>
+                  <tr>
+                    <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                      Name
+                    </th>
+
+                    <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                      FROM
+                    </th>
+                    <th className="text-center px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                      Status
+                    </th>
+                    <th className="text-end px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                      Time
+                    </th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody>
+                  {listParcel &&
+                    listParcel.map((product) => (
+                      <tr key={product.id_parcel} className="hover:bg-gray-100">
+                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                          <p className="text-gray-900 whitespace-no-wrap">
+                            {product.id_parcel}
+                          </p>
+                        </td>
+
+                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                          <p className="text-gray-900 whitespace-no-wrap">
+                            {product.from}
+                          </p>
+                        </td>
+                        <td className="text-center px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                          <span className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                            <span
+                              aria-hidden
+                              className="absolute inset-0 bg-green-200 opacity-50 rounded-full"
+                            ></span>
+                            {product.status ? (
+                              <span className="relative">ພັດສະດຸຢູ່ສາງ</span>
+                            ) : null}
+                          </span>
+                        </td>
+                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm text-end">
+                          <p className="text-gray-900 whitespace-no-wrap">
+                            {product.time}
+                          </p>
+                        </td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+            </div>
+          ) : null}
         </div>
       </main>
     </div>
@@ -415,7 +509,7 @@ const valueContainerStyle = {
   gap: "10px",
 };
 
-const valueStyle = { fontSize: "38px", fontWeight: "semibold" };
+const valueStyle = { fontSize: "38px", fontWeight: "bold" };
 
 const unitStyle = { fontSize: "24px" };
 

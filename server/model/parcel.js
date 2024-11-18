@@ -1,5 +1,5 @@
 const { sequelize } = require("../db");
-const { DataTypes } = require("sequelize");
+const { DataTypes, Sequelize } = require("sequelize");
 
 const Parcel = sequelize.define(
   "Parcel",
@@ -21,6 +21,21 @@ const Parcel = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
       defaultValue: "LAO Warehouse",
+    },
+    time: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: Sequelize.NOW,
+    },
+    status: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "origin",
+    },
+    timeexport: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: '',
     },
   },
   {

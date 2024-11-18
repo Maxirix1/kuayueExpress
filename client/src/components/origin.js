@@ -83,6 +83,9 @@ const Origin = ({ onParcelChange }) => {
                       borderRadius: "5px 0 0 5px",
                     }}
                   >
+                    <option value="" disabled>
+                      +
+                    </option>
                     <option value="+66">+66</option>
                     <option value="+856">+856</option>
                   </select>
@@ -162,61 +165,16 @@ const Origin = ({ onParcelChange }) => {
                 style={inputStyle}
                 onChange={handleInputChange}
                 name="branch"
+                required
                 value={parcelData.branch}
               >
                 <option value="" disabled>
                   เลือกสาขา
                 </option>
-                <option value="Branch1">Branch 1</option>
-                <option value="Branch2">Branch 2</option>
+                <option value="branch01">Branch 1</option>
+                <option value="branch02">Branch 2</option>
               </select>
             </div>
-            {/* <div style={{ marginBottom: "10px", display: "flex", gap: "10px" }}>
-              <div style={{ flex: 1 }}>
-                <label style={labelStyle}>เบอร์ผู้รับ :</label>
-                <div style={{ display: "flex" }}>
-                  <select
-                    style={{
-                      ...inputStyle,
-                      width: "80px",
-                      borderRadius: "5px 0 0 5px",
-                    }}
-                  >
-                    <option>+66</option>
-                  </select>
-                  <input
-                    type="tel"
-                    placeholder="XX-XXX-XXXX"
-                    style={{
-                      ...inputStyle,
-                      flex: 1,
-                      borderRadius: "0 5px 5px 0",
-                    }}
-                  />
-                </div>
-              </div>
-            </div> */}
-            {/* <div style={{ marginBottom: "10px" }}>
-              <label style={labelStyle}>ชื่อผู้รับ :</label>
-              <input
-                type="text"
-                placeholder="Name Lastname"
-                style={inputStyle}
-              />
-            </div> */}
-            {/* <div style={{ marginBottom: "10px" }}>
-              <label style={{ display: "flex", alignItems: "center" }}>
-                <input type="checkbox" style={{ marginRight: "5px" }} />{" "}
-                รับที่สาขา
-              </label>
-            </div> */}
-            {/* <div>
-              <label style={labelStyle}>หมายเหตุ :</label>
-              <textarea
-                placeholder="เพิ่มหมายเหตุ"
-                style={{ ...inputStyle, height: "80px" }}
-              ></textarea>
-            </div> */}
           </div>
         </div>
       </div>
