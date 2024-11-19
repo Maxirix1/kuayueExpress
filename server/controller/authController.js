@@ -277,7 +277,7 @@ exports.saveData = async (req, res) => {
       } catch (error) {
         console.error("Error while updating credit", error);
       }
-
+      
       const [updated] = await ParcelDetail.update(dataExpress, {
         where: { id_parcel: mainParcel.id_parcel },
       });
