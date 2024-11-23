@@ -129,7 +129,7 @@ const Origin = ({ onParcelChange }) => {
               </label>
             </div>
             <div>
-              <label style={labelStyle}>ບັນທຶກ :</label>
+              <label style={labelStyle}>ບັນທຶກ:</label>
               <textarea
                 name="note"
                 value={parcelData.note}
