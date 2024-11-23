@@ -11,6 +11,9 @@
         width: 380px;
         height: 150px;
     }
+    .containerAbout .content p {
+        padding: 30px 20px;
+    }
 }
 @media screen and (max-width: 1050px) {
     .contentButtonPosition div {
@@ -18,6 +21,13 @@
         padding: 10px 20px;
         width: 330px;
         height: 120px;
+    }
+    .containerAbout {
+        padding: 30px 50px;
+        margin: 0 60px;
+    }
+    .containerAbout .content p {
+        padding: 20px 0px;
     }
 }
 @media screen and (max-width: 900px) {
@@ -39,6 +49,9 @@
         padding: 40px 20px;
         font-weight: 200;
     }
+    .webService {
+        padding: 0 7vw;
+    }
 }
 @media screen and (max-width: 700px) {
     .contentButtonPosition div {
@@ -46,6 +59,9 @@
         padding: 10px 20px;
         width: 250px;
         height: 100px;
+    }
+    .containerAbout {
+        padding: 30px 20px;
     }
 }
 @media screen and (max-width: 656px) {

@@ -7,7 +7,7 @@ function CalculateTH() {
   return (
     <div>
         <Navbar></Navbar>
-      <div className="w-full flex flex-col align-center justify-center items-center 2xl:px-[20vw]">
+      <div className="pt-14 w-full flex flex-col align-center justify-center items-center 2xl:px-[20vw]">
         <h1 className="text-center text-[20px] text-[#fff] font-semibold px-10 py-2  rounded-md bg-[#8044CC]">ສຳລັບສາງ ໜອງຄາຍ</h1>
 
         <img src={Price1} alt="calculate" className="w-full mt-4" />
