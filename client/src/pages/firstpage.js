@@ -175,7 +175,7 @@ const InventoryStatistics = () => {
             marginBottom: "20px",
           }}
         >
-          <h2 style={{ fontSize: "24px", margin: 0 }}>การจัดการ</h2>
+          <h2 style={{ fontSize: "24px", margin: 0 }}>ການຄຸ້ມຄອງ</h2>
           {isMobile && (
             <button
               onClick={toggleSidebar}
@@ -284,7 +284,7 @@ const InventoryStatistics = () => {
                 ☰
               </button>
             )}
-            <h1 style={{ fontSize: "24px", margin: "0" }}>หน้าแรก</h1>
+            <h1 style={{ fontSize: "24px", margin: "0" }}>ຫນ້າທໍາອິດ</h1>
           </div>
           {!isMobile && (
             <div style={{ display: "flex", alignItems: "center" }}>
@@ -339,13 +339,13 @@ const InventoryStatistics = () => {
               >
                 {storedRole === "branch" ? (
                   <div>
-                    <h2 style={titleStyle}>จำนวนพัสดุทั้งหมด</h2>
-                    <h2 style={titleStyle}>ที่ถูกส่งมายังสาขา</h2>
+                    <h2 style={titleStyle}>ຈໍາ​ນວນ​ທັງ​ຫມົດ​ຂອງ parcels​</h2>
+                    <h2 style={titleStyle}>ທີ່ຖືກສົ່ງກັບສາຂາ</h2>
                   </div>
                 ) : (
                   <div>
-                    <h2 style={titleStyle}>จำนวนพัสดุทั้งหมด</h2>
-                    <h2 style={titleStyle}>ที่อยู่ในโกดัง</h2>
+                    <h2 style={titleStyle}>ຈໍາ​ນວນ​ທັງ​ຫມົດ​ຂອງ parcels​</h2>
+                    <h2 style={titleStyle}>ທີ່ຢູ່ໃນສາງ</h2>
                   </div>
                 )}
 
@@ -394,7 +394,7 @@ const InventoryStatistics = () => {
                     minWidth: "200px",
                   }}
                 >
-                  <h2 style={titleStyle}>เครดิต</h2>
+                  <h2 style={titleStyle}>ສິນເຊື່ອ</h2>
 
                   <div style={valueContainerStyle}>
                     <span style={valueStyle}>
@@ -419,7 +419,7 @@ const InventoryStatistics = () => {
 
           {storedBranch === "LAO Warehouse" ? (
             <div>
-              <h2>พัสดุที่อยู่ในโกดัง</h2>
+              <h2>parcels ໃນສາງ</h2>
               {/* Data Table */}
               <table className="min-w-full leading-normal">
                 <thead>

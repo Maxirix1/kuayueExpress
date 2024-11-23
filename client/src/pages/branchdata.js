@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
-import '../style/font-style.css'
+import "../style/font-style.css";
 
 const BranchDashboard = () => {
   const { username, role } = useAuth();
@@ -120,7 +120,7 @@ const BranchDashboard = () => {
             marginBottom: "20px",
           }}
         >
-          <h2 style={{ fontSize: "24px", margin: 0 }}>การจัดการ</h2>
+          <h2 style={{ fontSize: "24px", margin: 0 }}>ການຄຸ້ມຄອງ</h2>
           {isMobile && (
             <button
               onClick={toggleSidebar}
@@ -222,7 +222,7 @@ const BranchDashboard = () => {
                 ☰
               </button>
             )}
-            <h1 style={{ fontSize: "24px", margin: "0" }}>ข้อมูลสาขา</h1>
+            <h1 style={{ fontSize: "24px", margin: "0" }}>ຂໍ້ມູນສາຂາ</h1>
           </div>
           {!isMobile && (
             <div style={{ display: "flex", alignItems: "center" }}>
