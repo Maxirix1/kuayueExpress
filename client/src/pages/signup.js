@@ -4,7 +4,7 @@ import "../style/login.css";
 import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/navbar";
 import Facebook from "../assets/facebook.png";
-import '../style/font-style.css'
+import "../style/font-style.css";
 import axios from "axios";
 import { BarLoader } from "react-spinners";
 
@@ -37,16 +37,18 @@ function Signup() {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/signup", formSignup );
+        "http://localhost:5000/api/signup",
+        formSignup
+      );
       setMessage(response.data.message);
 
       if (response.status === 201) {
         navigate("/login");
       }
     } catch (error) {
-      if(error.response) {
+      if (error.response) {
         setMessage(error.response.data.message);
-      }else {
+      } else {
         setMessage("Signup failed");
       }
     } finally {
@@ -138,7 +140,7 @@ function Signup() {
                   {loading ? "Signing up..." : "Sign in"}
                 </button>
                 <p className="text-center text-sm font-light text-gray-500 ">
-                ມີບັນຊີຢູ່ແລ້ວບໍ??{" "}
+                  ມີບັນຊີຢູ່ແລ້ວບໍ??{" "}
                   <Link
                     to="/login"
                     className="font-medium text-[#7d00d1] hover:underline "
@@ -164,10 +166,10 @@ function Signup() {
               <a href="/">| About</a>
             </li>
             <li>
-              <a href="/">| ติดตามพัสดุ</a>
+              <a href="/">| ຕິດ​ຕາມ parcel​</a>
             </li>
             <li>
-              <a href="/">| คำนวณค่าขนส่ง</a>
+              <a href="/">| ຄິດໄລ່ຄ່າຂົນສົ່ງ</a>
             </li>
           </ul>
         </div>

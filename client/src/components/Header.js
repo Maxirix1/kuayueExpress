@@ -1,5 +1,5 @@
-import React from 'react';
-import '../style/Header.css';
+import React from "react";
+import "../style/Header.css";
 
 function Header() {
   // const [username, setUsername] = useState();
@@ -9,12 +9,15 @@ function Header() {
   return (
     <div className="header">
       <div className="date-info">
-         XX/XX/XX<br />
+        XX/XX/XX
+        <br />
         XX:XX
       </div>
       <div className="user-info">
-        <span>{'{ USERNAME }'} | { 'ตำเเหน่งโกดัง หรือ สาขาที่ประจำอยู่' }</span>
-        <button className="home-btn">หน้าแรก</button>
+        <span>
+          {"{ USERNAME }"} | {"ตำเเหน่งโกดัง หรือ สาขาที่ประจำอยู่"}
+        </span>
+        <button className="home-btn">ຫນ້າທໍາອິດ</button>
       </div>
     </div>
   );

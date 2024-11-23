@@ -38,7 +38,7 @@ function Login() {
         response.data.token &&
         response.data.username &&
         response.data.role &&
-        response.data.branch 
+        response.data.branch
         // response.data.credit
       ) {
         localStorage.setItem("token", response.data.token);
@@ -155,10 +155,10 @@ function Login() {
               <a href="/">| About</a>
             </li>
             <li>
-              <a href="/">| ติดตามพัสดุ</a>
+              <a href="/">| ຕິດ​ຕາມ parcel​</a>
             </li>
             <li>
-              <a href="/">| คำนวณค่าขนส่ง</a>
+              <a href="/">| ຄິດໄລ່ຄ່າຂົນສົ່ງ</a>
             </li>
           </ul>
         </div>

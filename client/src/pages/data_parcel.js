@@ -38,7 +38,7 @@ function Data_parcel() {
       <div className="content">
         <div className="contentText">
           <p>
-            <strong>หมายเลขพัสดุ: {id}</strong>
+            <strong>ໝາຍເລກເຄື່ອງ: {id}</strong>
           </p>
         </div>
 
@@ -120,7 +120,7 @@ function Data_parcel() {
                   />
                 </svg>
 
-                <strong>โกดังรับสินค้าแล้ว</strong>
+                <strong>ສາງໄດ້ຮັບສິນຄ້າແລ້ວ.</strong>
               </div>
               <div className="statusItem">
                 <svg
@@ -147,7 +147,7 @@ function Data_parcel() {
                     </clipPath>
                   </defs>
                 </svg>
-                <strong>พัสดุกำลังจัดส่งไปเวียงจันทร์</strong>
+                <strong>ສິນຄ້າມີພ້ອມສົ່ງ ນະຄອນຫຼວງວຽງຈັນ.</strong>
               </div>
               <div className="statusItem">
                 <svg
@@ -167,7 +167,7 @@ function Data_parcel() {
                     stroke-linejoin="round"
                   />
                 </svg>
-                <strong>พัสดุถึง เวียงจันทร์แล้ว</strong>
+                <strong>ເຄື່ອງມາຮອດວຽງຈັນແລ້ວ.</strong>
               </div>
               <div className="statusItem">
                 <svg
@@ -202,7 +202,7 @@ function Data_parcel() {
                     fill="#000000"
                   />
                 </svg>
-                <strong>พัสดุกำลังจัดส่งไป {branch}</strong>
+                <strong>ພັດສະດຸກຳລັງຖືກຈັດສົ່ງ. {branch}</strong>
               </div>
               <div className="statusItem">
                 <svg
@@ -222,7 +222,7 @@ function Data_parcel() {
                     stroke-linejoin="round"
                   />
                 </svg>
-                <strong>พัสดุถึง {branch} แล้ว</strong>
+                <strong>Parcel ມາຮອດ {branch} ແລ້ວ</strong>
               </div>
               <div className="statusItem">
                 <svg
@@ -243,7 +243,11 @@ function Data_parcel() {
                     fill="#0F0F0F"
                   />
                 </svg>
-                <strong>จัดส่งสินค้าเรียบร้อย<br/>ลูกค้ารับพัสดุที่ {branch}</strong>
+                <strong>
+                  ຜະລິດຕະພັນໄດ້ຖືກຈັດສົ່ງ.
+                  <br />
+                  ລູກຄ້າໄດ້ຮັບຊຸດທີ່ {branch}
+                </strong>
               </div>
             </div>
           </div>

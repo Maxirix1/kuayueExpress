@@ -128,7 +128,7 @@ const Listproduct = () => {
       <div className="flex items-center justify-center flex-col">
         <div className="bg-[#732dcf] px-6 py-4 pb-6 rounded-lg w-full mb-10">
           <h1 style={{ fontSize: "16px", margin: "0", color: "#fff" }}>
-            ค้นหารายการพัสดุ
+            ຄົ້ນຫາສໍາລັບລາຍການ parcel
           </h1>
 
           <div className="flex mt-2 gap-2">
@@ -136,7 +136,9 @@ const Listproduct = () => {
               type="text"
               onKeyDown={(e) => {
                 if (e.key === "Enter") {
-                  const parcel = products.find((item) => item.id_parcel === findParcel);
+                  const parcel = products.find(
+                    (item) => item.id_parcel === findParcel
+                  );
                   if (parcel) {
                     handleAccept(parcel);
                   } else {

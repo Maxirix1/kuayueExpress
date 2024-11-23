@@ -337,7 +337,7 @@ const DistributionDashboard = ({ onDetailsChange }) => {
             marginBottom: "20px",
           }}
         >
-          <h2 style={{ fontSize: "24px", margin: 0 }}>การจัดการ</h2>
+          <h2 style={{ fontSize: "24px", margin: 0 }}>ການຄຸ້ມຄອງ</h2>
           {isMobile && (
             <button
               onClick={toggleSidebar}
@@ -362,7 +362,7 @@ const DistributionDashboard = ({ onDetailsChange }) => {
               isMobile && toggleSidebar();
             }}
           >
-            หน้าแรก
+            ຫນ້າທໍາອິດ
           </Link>
           <Link
             to="/homeAdmin/list"
@@ -372,7 +372,7 @@ const DistributionDashboard = ({ onDetailsChange }) => {
               isMobile && toggleSidebar();
             }}
           >
-            รายการพัสดุ
+            ບັນ​ຊີ​ລາຍ​ຊື່ Parcel
           </Link>
           <Link
             to="/homeAdmin/distribution"
@@ -382,7 +382,7 @@ const DistributionDashboard = ({ onDetailsChange }) => {
               isMobile && toggleSidebar();
             }}
           >
-            กระจายพัสดุ
+            ແຈກ​ຢາຍ parcel​
           </Link>
           <Link
             to="/homeAdmin/branch"
@@ -392,7 +392,7 @@ const DistributionDashboard = ({ onDetailsChange }) => {
               isMobile && toggleSidebar();
             }}
           >
-            ข้อมูลสาขา
+            ຂໍ້ມູນສາຂາ
           </Link>
         </nav>
         <button
@@ -439,7 +439,9 @@ const DistributionDashboard = ({ onDetailsChange }) => {
                 ☰
               </button>
             )}
-            <h1 style={{ fontSize: "24px", margin: "0" }}>การกระจายพัสดุ</h1>
+            <h1 style={{ fontSize: "24px", margin: "0" }}>
+              ການ​ແຈກ​ຢາຍ parcel
+            </h1>
           </div>
           {!isMobile && (
             <div style={{ display: "flex", alignItems: "center" }}>
@@ -469,7 +471,7 @@ const DistributionDashboard = ({ onDetailsChange }) => {
                   cursor: "pointer",
                 }}
               >
-                หน้าเเรก
+                ຫນ້າທໍາອິດ
               </Link>
             </div>
           )}
@@ -491,7 +493,9 @@ const DistributionDashboard = ({ onDetailsChange }) => {
                   }}
                 >
                   <div style={gradientHeaderStyle("#0031e0", "#0ad5f5")}>
-                    <h2 style={{ margin: 0, color: "white" }}>ข้อมูลพัสดุ</h2>
+                    <h2 style={{ margin: 0, color: "white" }}>
+                      ຂໍ້​ມູນ​ການ​ພັດ​ທະ​ນາ​
+                    </h2>
                   </div>
                   <div style={bodyStyle}>
                     <div
@@ -503,7 +507,7 @@ const DistributionDashboard = ({ onDetailsChange }) => {
                       }}
                     >
                       <div>
-                        <label style={labelStyle}>ประเภท :</label>
+                        <label style={labelStyle}>ປະເພດ :</label>
                         <select
                           style={inputStyle}
                           onChange={handleInputChange}
@@ -524,24 +528,24 @@ const DistributionDashboard = ({ onDetailsChange }) => {
                           <option value="G"> G</option>
                           <option value="H"> H</option>
                           <option value="I"> I</option>
-                          <option value="Genaral"> เครื่องใช้ทั่วไป</option>
-                          <option value="Electrical"> เครื่องใช้ไฟฟ้า</option>
+                          <option value="Genaral"> ເຄື່ອງໃຊ້ທົ່ວໄປ</option>
+                          <option value="Electrical"> ເຄື່ອງໃຊ້ໄຟຟ້າ</option>
                           <option value="Big-But-Light">
                             {" "}
-                            เครื่องใหญ่น้ำหนักเบา
+                            ເຄື່ອງໃຫຍ່, ນ້ ຳ ໜັກ ເບົາ
                           </option>
-                          <option value="Lots-of-Weight"> น้ำหนักเยอะ</option>
+                          <option value="Lots-of-Weight"> ນ້ຳໜັກຫຼາຍ</option>
                         </select>
                       </div>
                       <div>
-                        <label style={labelStyle}>ขนาด(cm) :</label>
+                        <label style={labelStyle}>ຂະໜາດ(cm) :</label>
                         <div style={{ display: "flex", gap: "5px" }}>
                           <input
                             name="width"
                             type="number"
                             onChange={handleInputChange}
                             value={detailsData.width}
-                            placeholder="กว้าง"
+                            placeholder="ກວ້າງ"
                             style={{ ...inputStyle, flex: 1 }}
                           />
                           <input
@@ -549,7 +553,7 @@ const DistributionDashboard = ({ onDetailsChange }) => {
                             type="number"
                             onChange={handleInputChange}
                             value={detailsData.length}
-                            placeholder="ยาว"
+                            placeholder="ຍາວ"
                             style={{ ...inputStyle, flex: 1 }}
                           />
                           <input
@@ -557,42 +561,42 @@ const DistributionDashboard = ({ onDetailsChange }) => {
                             type="number"
                             onChange={handleInputChange}
                             value={detailsData.height}
-                            placeholder="สูง"
+                            placeholder="ສູງ"
                             style={{ ...inputStyle, flex: 1 }}
                           />
                         </div>
                       </div>
                       <div>
-                        <label style={labelStyle}>น้ำหนัก(kg) :</label>
+                        <label style={labelStyle}>ນ້ຳໜັກ(kg) :</label>
                         <input
                           name="weight"
                           type="number"
                           onChange={handleInputChange}
                           value={detailsData.weight}
-                          placeholder="น้ำหนัก"
+                          placeholder="ນ້ຳໜັກ"
                           style={inputStyle}
                         />
                       </div>
                       <div>
-                        <label style={labelStyle}>จำนวน :</label>
+                        <label style={labelStyle}>ປະລິມານ :</label>
                         <input
                           name="amount"
                           type="number"
                           onChange={handleInputChange}
                           value={detailsData.amount}
-                          placeholder="จำนวน(ชิ้น)"
+                          placeholder="ປະລິມານ (ຕ່ອນ)"
                           style={inputStyle}
                         />
                       </div>
                       <div>
-                        <label style={labelStyle}>ราคา :</label>
+                        <label style={labelStyle}>ລາຄາ :</label>
                         <input
                           name="price"
                           type="number"
                           onChange={handlePriceChange}
                           // onBlur={calculatePrice}
                           value={detailsData.price}
-                          placeholder="ราคา"
+                          placeholder="ລາຄາ"
                           style={inputStyle}
                         />
                       </div>

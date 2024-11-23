@@ -77,14 +77,14 @@ const Successbranch = () => {
     <div className="flex items-center justify-center flex-col">
       <div className="bg-[#732dcf] px-6 py-4 pb-6 rounded-lg w-full xl:w-[70%] mb-10">
         <h1 style={{ fontSize: "16px", margin: "0", color: "#fff" }}>
-          ค้นหารายการพัสดุ
+          ຄົ້ນຫາສໍາລັບລາຍການ parcel
         </h1>
 
         <div className="flex mt-2 gap-2">
           <input
             type="text"
             value={findParcel}
-            onKeyDown={handleKeyDown} 
+            onKeyDown={handleKeyDown}
             // onChange={(e) => setIdParcel(e.target.value)}
             onPaste={handleSeachPaste}
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
@@ -117,7 +117,7 @@ const Successbranch = () => {
       </div>
       {parcelResponse ? (
         <>
-          <p>ยืนยันการส่งของให้ลูกค้า</p>
+          <p>ຢືນຢັນການຈັດສົ່ງສິນຄ້າໃຫ້ລູກຄ້າ</p>
           <table className="w-ful xl:w-[70%]">
             <thead>
               <tr className="bg-gray-200 text-gray-800">
@@ -171,7 +171,7 @@ const Successbranch = () => {
         </>
       ) : parcels.length > 0 ? (
         <>
-          <p className="text-start">ยืนยันการส่งของให้ลูกค้า</p>
+          <p className="text-start">ຢືນຢັນການຈັດສົ່ງສິນຄ້າໃຫ້ລູກຄ້າ</p>
           <table className="w-full xl:w-[70%]">
             <thead>
               <tr className="bg-gray-200 text-gray-800">

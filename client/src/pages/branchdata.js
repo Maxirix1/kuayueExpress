@@ -145,7 +145,7 @@ const BranchDashboard = () => {
               isMobile && toggleSidebar();
             }}
           >
-            หน้าแรก
+            ຫນ້າທໍາອິດ
           </Link>
           <Link
             to="/homeAdmin/list"
@@ -155,7 +155,7 @@ const BranchDashboard = () => {
               isMobile && toggleSidebar();
             }}
           >
-            รายการพัสดุ
+            ບັນ​ຊີ​ລາຍ​ຊື່ Parcel
           </Link>
           <Link
             to="/homeAdmin/distribution"
@@ -165,7 +165,7 @@ const BranchDashboard = () => {
               isMobile && toggleSidebar();
             }}
           >
-            กระจายพัสดุ
+            ການຈັດສົ່ງພັດສະດຸ
           </Link>
           <Link
             to="/homeAdmin/branch"
@@ -175,7 +175,7 @@ const BranchDashboard = () => {
               isMobile && toggleSidebar();
             }}
           >
-            ข้อมูลสาขา
+            ຂໍ້ມູນສາຂາ
           </Link>
         </nav>
         <button
@@ -252,7 +252,7 @@ const BranchDashboard = () => {
                   cursor: "pointer",
                 }}
               >
-                หน้าเเรก
+                ຫນ້າທໍາອິດ
               </Link>
             </div>
           )}

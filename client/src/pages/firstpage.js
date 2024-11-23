@@ -200,7 +200,7 @@ const InventoryStatistics = () => {
               isMobile && toggleSidebar();
             }}
           >
-            หน้าแรก
+            ຫນ້າທໍາອິດ
           </Link>
           <Link
             to="/homeAdmin/list"
@@ -210,7 +210,7 @@ const InventoryStatistics = () => {
               isMobile && toggleSidebar();
             }}
           >
-            รายการพัสดุ
+            ບັນ​ຊີ​ລາຍ​ຊື່ Parcel
           </Link>
           <Link
             to="/homeAdmin/distribution"
@@ -220,7 +220,7 @@ const InventoryStatistics = () => {
               isMobile && toggleSidebar();
             }}
           >
-            กระจายพัสดุ
+            ແຈກ​ຢາຍ parcel​
           </Link>
           <Link
             to="/homeAdmin/branch"
@@ -230,7 +230,7 @@ const InventoryStatistics = () => {
               isMobile && toggleSidebar();
             }}
           >
-            ข้อมูลสาขา
+            ຂໍ້ມູນສາຂາ
           </Link>
         </nav>
         <button
@@ -313,7 +313,7 @@ const InventoryStatistics = () => {
                   cursor: "pointer",
                 }}
               >
-                หน้าเเรก
+                ຂໍ້ມູນສາຂາ
               </Link>
             </div>
           )}
@@ -372,10 +372,10 @@ const InventoryStatistics = () => {
                       </span>
                     )}
 
-                    <span style={unitStyle}>ชิ้น</span>
+                    <span style={unitStyle}>ລາຍການ</span>
                   </div>
                   <p style={noteStyle}>
-                    จำนวนทั้งหมดนับจากข้อมูลพัสดุที่ถูกเพิ่ม
+                    ຈໍານວນທັງຫມົດແມ່ນນັບຈາກຂໍ້ມູນ parcel ທີ່ຖືກເພີ່ມ.
                   </p>
                 </div>
               </div>

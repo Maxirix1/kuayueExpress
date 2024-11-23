@@ -50,12 +50,12 @@ const Origin = ({ onParcelChange }) => {
         >
           <div style={gradientHeaderStyle("#0bdb96", "#00c6e0")}>
             <h2 style={{ margin: 0, color: "white" }} className="font-semibold">
-              ต้นทาง
+              ຕົ້ນກໍາເນີດ
             </h2>
           </div>
           <div style={bodyStyle}>
             <div style={{ marginBottom: "10px" }}>
-              <label style={labelStyle}>สาขา :</label>
+              <label style={labelStyle}>ສາຂາ :</label>
               <p>{branch}</p>
             </div>
             <div style={{ marginBottom: "10px" }}>
@@ -71,7 +71,7 @@ const Origin = ({ onParcelChange }) => {
             </div>
             <div style={{ marginBottom: "10px", display: "flex", gap: "10px" }}>
               <div style={{ flex: 1 }}>
-                <label style={labelStyle}>เบอร์ผู้ส่ง :</label>
+                <label style={labelStyle}>ໝາຍເລກຜູ້ສົ່ງ :</label>
                 <div style={{ display: "flex" }}>
                   <select
                     name="type_tel"
@@ -114,7 +114,7 @@ const Origin = ({ onParcelChange }) => {
                   onChange={() => handleRadioChange("delivery")}
                   style={{ marginRight: "5px" }}
                 />{" "}
-                จัดส่ง
+                ການຈັດສົ່ງ
               </label>
               <label style={{ display: "flex", alignItems: "center" }}>
                 <input
@@ -125,16 +125,16 @@ const Origin = ({ onParcelChange }) => {
                   onChange={() => handleRadioChange("warehouse")}
                   style={{ marginRight: "5px" }}
                 />{" "}
-                รับที่โกดัง
+                ເອົາຢູ່ສາງ
               </label>
             </div>
             <div>
-              <label style={labelStyle}>หมายเหตุ :</label>
+              <label style={labelStyle}>ບັນທຶກ :</label>
               <textarea
                 name="note"
                 value={parcelData.note}
                 onChange={handleInputChange}
-                placeholder="เพิ่มหมายเหตุ"
+                placeholder="ເພີ່ມບັນທຶກ"
                 style={{ ...inputStyle, height: "80px" }}
               ></textarea>
             </div>
@@ -155,12 +155,12 @@ const Origin = ({ onParcelChange }) => {
         >
           <div style={gradientHeaderStyle("#0b5edb", "#0bd1db")}>
             <h2 style={{ margin: 0, color: "white" }} className="font-semibold">
-              ปลายทาง
+              ຈຸດໝາຍປາຍທາງ
             </h2>
           </div>
           <div style={bodyStyle}>
             <div style={{ marginBottom: "10px" }}>
-              <label style={labelStyle}>สาขา :</label>
+              <label style={labelStyle}>ສາຂາ :</label>
               <select
                 style={inputStyle}
                 onChange={handleInputChange}
@@ -169,7 +169,7 @@ const Origin = ({ onParcelChange }) => {
                 value={parcelData.branch}
               >
                 <option value="" disabled>
-                  เลือกสาขา
+                  ເລືອກສາຂາ
                 </option>
                 <option value="branch01">Branch 1</option>
                 <option value="branch02">Branch 2</option>
