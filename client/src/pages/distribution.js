@@ -241,7 +241,6 @@ const DistributionDashboard = ({ onDetailsChange }) => {
       case "G":
       case "H":
       case "I":
-        // ใช้ตารางราคาเดียวกันสำหรับทุกประเภท
         if (size <= 25 && weight <= 0.5) price = 25;
         else if (size <= 35 && weight <= 1) price = 35 * rateThai;
         else if (size <= 45 && weight <= 3) price = 45 * rateThai;
@@ -276,7 +275,6 @@ const DistributionDashboard = ({ onDetailsChange }) => {
 
     // console.log("Price:", price);
 
-    // อัปเดต state ด้วยราคาใหม่ที่คำนวณแล้ว
     setDetailsData((prevData) => ({
       ...prevData,
       // price: prevData.price || price * amount,
